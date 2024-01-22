@@ -1,0 +1,139 @@
+D:\VimassUHFUploadVideo\VimassUHFUploadVideo\bin\Debug\VimassUHFUploadVideo.exe.config
+D:\VimassUHFUploadVideo\VimassUHFUploadVideo\bin\Debug\VimassUHFUploadVideo.exe
+D:\VimassUHFUploadVideo\VimassUHFUploadVideo\bin\Debug\VimassUHFUploadVideo.pdb
+D:\VimassUHFUploadVideo\VimassUHFUploadVideo\bin\Debug\Newtonsoft.Json.dll
+D:\VimassUHFUploadVideo\VimassUHFUploadVideo\bin\Debug\Newtonsoft.Json.xml
+D:\VimassUHFUploadVideo\VimassUHFUploadVideo\obj\Debug\VimassUHFUploadVideo.csproj.AssemblyReference.cache
+D:\VimassUHFUploadVideo\VimassUHFUploadVideo\obj\Debug\VimassUHFUploadVideo.csproj.SuggestedBindingRedirects.cache
+D:\VimassUHFUploadVideo\VimassUHFUploadVideo\obj\Debug\VimassUHFUploadVideo.Form1.resources
+D:\VimassUHFUploadVideo\VimassUHFUploadVideo\obj\Debug\VimassUHFUploadVideo.Properties.Resources.resources
+D:\VimassUHFUploadVideo\VimassUHFUploadVideo\obj\Debug\VimassUHFUploadVideo.csproj.GenerateResource.cache
+D:\VimassUHFUploadVideo\VimassUHFUploadVideo\obj\Debug\VimassUHFUploadVideo.csproj.CoreCompileInputs.cache
+D:\VimassUHFUploadVideo\VimassUHFUploadVideo\obj\Debug\VimassUHFUploadVideo.csproj.CopyComplete
+D:\VimassUHFUploadVideo\VimassUHFUploadVideo\obj\Debug\VimassUHFUploadVideo.exe
+D:\VimassUHFUploadVideo\VimassUHFUploadVideo\obj\Debug\VimassUHFUploadVideo.pdb
+D:\VimassUHFUploadVideo\VimassUHFUploadVideo\obj\Debug\VimassUHFUploadVideo.TKIN.resources
+D:\VimassUHFUploadVideo\VimassUHFUploadVideo\obj\Debug\VimassUHFUploadVideo.TKOUT.resources
+D:\VimassUHFUploadVideo\VimassUHFUploadVideo\obj\Debug\VimassUHFUploadVideo.HHTIN.resources
+D:\VimassUHFUploadVideo\VimassUHFUploadVideo\obj\Debug\VimassUHFUploadVideo.HHTOUT.resources
+D:\VimassUHFUploadVideo\VimassUHFUploadVideo\obj\Debug\VimassUHFUploadVideo.TEST.resources
+D:\VimassUHFUploadVideo\VimassUHFUploadVideo\bin\Debug\AForge.dll
+D:\VimassUHFUploadVideo\VimassUHFUploadVideo\bin\Debug\AForge.Video.DirectShow.dll
+D:\VimassUHFUploadVideo\VimassUHFUploadVideo\bin\Debug\AForge.Video.dll
+D:\VimassUHFUploadVideo\VimassUHFUploadVideo\bin\Debug\AForge.Video.FFMPEG.dll
+D:\VimassUHFUploadVideo\VimassUHFUploadVideo\bin\Debug\AForge.Video.VFW.dll
+D:\VimassUHFUploadVideo\VimassUHFUploadVideo\bin\Debug\AForge.xml
+D:\VimassUHFUploadVideo\VimassUHFUploadVideo\bin\Debug\AForge.Video.xml
+D:\VimassUHFUploadVideo\VimassUHFUploadVideo\bin\Debug\AForge.Video.DirectShow.xml
+D:\VimassUHFUploadVideo\VimassUHFUploadVideo\obj\Debug\VimassUHFUploadVideo.AddTIDUID.resources
+D:\VimassCode\VimassUHFUploadVideo\VimassUHFUploadVideo\bin\Debug\VimassUHFUploadVideo.exe.config
+D:\VimassCode\VimassUHFUploadVideo\VimassUHFUploadVideo\bin\Debug\VimassUHFUploadVideo.exe
+D:\VimassCode\VimassUHFUploadVideo\VimassUHFUploadVideo\bin\Debug\VimassUHFUploadVideo.pdb
+D:\VimassCode\VimassUHFUploadVideo\VimassUHFUploadVideo\bin\Debug\AForge.dll
+D:\VimassCode\VimassUHFUploadVideo\VimassUHFUploadVideo\bin\Debug\AForge.Video.DirectShow.dll
+D:\VimassCode\VimassUHFUploadVideo\VimassUHFUploadVideo\bin\Debug\AForge.Video.dll
+D:\VimassCode\VimassUHFUploadVideo\VimassUHFUploadVideo\bin\Debug\AForge.Video.FFMPEG.dll
+D:\VimassCode\VimassUHFUploadVideo\VimassUHFUploadVideo\bin\Debug\AForge.Video.VFW.dll
+D:\VimassCode\VimassUHFUploadVideo\VimassUHFUploadVideo\bin\Debug\Newtonsoft.Json.dll
+D:\VimassCode\VimassUHFUploadVideo\VimassUHFUploadVideo\bin\Debug\AForge.xml
+D:\VimassCode\VimassUHFUploadVideo\VimassUHFUploadVideo\bin\Debug\AForge.Video.xml
+D:\VimassCode\VimassUHFUploadVideo\VimassUHFUploadVideo\bin\Debug\AForge.Video.DirectShow.xml
+D:\VimassCode\VimassUHFUploadVideo\VimassUHFUploadVideo\bin\Debug\Newtonsoft.Json.xml
+D:\VimassCode\VimassUHFUploadVideo\VimassUHFUploadVideo\obj\Debug\VimassUHFUploadVideo.csproj.AssemblyReference.cache
+D:\VimassCode\VimassUHFUploadVideo\VimassUHFUploadVideo\obj\Debug\VimassUHFUploadVideo.csproj.SuggestedBindingRedirects.cache
+D:\VimassCode\VimassUHFUploadVideo\VimassUHFUploadVideo\obj\Debug\VimassUHFUploadVideo.AddTIDUID.resources
+D:\VimassCode\VimassUHFUploadVideo\VimassUHFUploadVideo\obj\Debug\VimassUHFUploadVideo.Form1.resources
+D:\VimassCode\VimassUHFUploadVideo\VimassUHFUploadVideo\obj\Debug\VimassUHFUploadVideo.HHTIN.resources
+D:\VimassCode\VimassUHFUploadVideo\VimassUHFUploadVideo\obj\Debug\VimassUHFUploadVideo.HHTOUT.resources
+D:\VimassCode\VimassUHFUploadVideo\VimassUHFUploadVideo\obj\Debug\VimassUHFUploadVideo.TEST.resources
+D:\VimassCode\VimassUHFUploadVideo\VimassUHFUploadVideo\obj\Debug\VimassUHFUploadVideo.TKIN.resources
+D:\VimassCode\VimassUHFUploadVideo\VimassUHFUploadVideo\obj\Debug\VimassUHFUploadVideo.Properties.Resources.resources
+D:\VimassCode\VimassUHFUploadVideo\VimassUHFUploadVideo\obj\Debug\VimassUHFUploadVideo.TKOUT.resources
+D:\VimassCode\VimassUHFUploadVideo\VimassUHFUploadVideo\obj\Debug\VimassUHFUploadVideo.csproj.GenerateResource.cache
+D:\VimassCode\VimassUHFUploadVideo\VimassUHFUploadVideo\obj\Debug\VimassUHFUploadVideo.csproj.CoreCompileInputs.cache
+D:\VimassCode\VimassUHFUploadVideo\VimassUHFUploadVideo\obj\Debug\VimassUHFUploadVideo.csproj.CopyComplete
+D:\VimassCode\VimassUHFUploadVideo\VimassUHFUploadVideo\obj\Debug\VimassUHFUploadVideo.exe
+D:\VimassCode\VimassUHFUploadVideo\VimassUHFUploadVideo\obj\Debug\VimassUHFUploadVideo.pdb
+C:\Users\hnver\Downloads\VimassUHFUploadVideo 1\VimassUHFUploadVideo\bin\Debug\VimassUHFUploadVideo.exe.config
+C:\Users\hnver\Downloads\VimassUHFUploadVideo 1\VimassUHFUploadVideo\bin\Debug\VimassUHFUploadVideo.exe
+C:\Users\hnver\Downloads\VimassUHFUploadVideo 1\VimassUHFUploadVideo\bin\Debug\VimassUHFUploadVideo.pdb
+C:\Users\hnver\Downloads\VimassUHFUploadVideo 1\VimassUHFUploadVideo\bin\Debug\AForge.dll
+C:\Users\hnver\Downloads\VimassUHFUploadVideo 1\VimassUHFUploadVideo\bin\Debug\AForge.Video.DirectShow.dll
+C:\Users\hnver\Downloads\VimassUHFUploadVideo 1\VimassUHFUploadVideo\bin\Debug\AForge.Video.dll
+C:\Users\hnver\Downloads\VimassUHFUploadVideo 1\VimassUHFUploadVideo\bin\Debug\AForge.Video.FFMPEG.dll
+C:\Users\hnver\Downloads\VimassUHFUploadVideo 1\VimassUHFUploadVideo\bin\Debug\AForge.Video.VFW.dll
+C:\Users\hnver\Downloads\VimassUHFUploadVideo 1\VimassUHFUploadVideo\bin\Debug\Newtonsoft.Json.dll
+C:\Users\hnver\Downloads\VimassUHFUploadVideo 1\VimassUHFUploadVideo\bin\Debug\AForge.xml
+C:\Users\hnver\Downloads\VimassUHFUploadVideo 1\VimassUHFUploadVideo\bin\Debug\AForge.Video.xml
+C:\Users\hnver\Downloads\VimassUHFUploadVideo 1\VimassUHFUploadVideo\bin\Debug\AForge.Video.DirectShow.xml
+C:\Users\hnver\Downloads\VimassUHFUploadVideo 1\VimassUHFUploadVideo\bin\Debug\Newtonsoft.Json.xml
+C:\Users\hnver\Downloads\VimassUHFUploadVideo 1\VimassUHFUploadVideo\obj\Debug\VimassUHFUploadVideo.csproj.AssemblyReference.cache
+C:\Users\hnver\Downloads\VimassUHFUploadVideo 1\VimassUHFUploadVideo\obj\Debug\VimassUHFUploadVideo.csproj.SuggestedBindingRedirects.cache
+C:\Users\hnver\Downloads\VimassUHFUploadVideo 1\VimassUHFUploadVideo\obj\Debug\VimassUHFUploadVideo.AddTIDUID.resources
+C:\Users\hnver\Downloads\VimassUHFUploadVideo 1\VimassUHFUploadVideo\obj\Debug\VimassUHFUploadVideo.Form1.resources
+C:\Users\hnver\Downloads\VimassUHFUploadVideo 1\VimassUHFUploadVideo\obj\Debug\VimassUHFUploadVideo.HHTIN.resources
+C:\Users\hnver\Downloads\VimassUHFUploadVideo 1\VimassUHFUploadVideo\obj\Debug\VimassUHFUploadVideo.HHTOUT.resources
+C:\Users\hnver\Downloads\VimassUHFUploadVideo 1\VimassUHFUploadVideo\obj\Debug\VimassUHFUploadVideo.TEST.resources
+C:\Users\hnver\Downloads\VimassUHFUploadVideo 1\VimassUHFUploadVideo\obj\Debug\VimassUHFUploadVideo.TKIN.resources
+C:\Users\hnver\Downloads\VimassUHFUploadVideo 1\VimassUHFUploadVideo\obj\Debug\VimassUHFUploadVideo.Properties.Resources.resources
+C:\Users\hnver\Downloads\VimassUHFUploadVideo 1\VimassUHFUploadVideo\obj\Debug\VimassUHFUploadVideo.TKOUT.resources
+C:\Users\hnver\Downloads\VimassUHFUploadVideo 1\VimassUHFUploadVideo\obj\Debug\VimassUHFUploadVideo.csproj.GenerateResource.cache
+C:\Users\hnver\Downloads\VimassUHFUploadVideo 1\VimassUHFUploadVideo\obj\Debug\VimassUHFUploadVideo.csproj.CoreCompileInputs.cache
+C:\Users\hnver\Downloads\VimassUHFUploadVideo 1\VimassUHFUploadVideo\obj\Debug\VimassUHFUploadVideo.csproj.CopyComplete
+C:\Users\hnver\Downloads\VimassUHFUploadVideo 1\VimassUHFUploadVideo\obj\Debug\VimassUHFUploadVideo.exe
+C:\Users\hnver\Downloads\VimassUHFUploadVideo 1\VimassUHFUploadVideo\obj\Debug\VimassUHFUploadVideo.pdb
+D:\VimassUHFUploadVideo_updateSv\VimassUHFUploadVideo\bin\Debug\VimassUHFUploadVideo.exe.config
+D:\VimassUHFUploadVideo_updateSv\VimassUHFUploadVideo\bin\Debug\VimassUHFUploadVideo.exe
+D:\VimassUHFUploadVideo_updateSv\VimassUHFUploadVideo\bin\Debug\VimassUHFUploadVideo.pdb
+D:\VimassUHFUploadVideo_updateSv\VimassUHFUploadVideo\bin\Debug\AForge.dll
+D:\VimassUHFUploadVideo_updateSv\VimassUHFUploadVideo\bin\Debug\AForge.Video.DirectShow.dll
+D:\VimassUHFUploadVideo_updateSv\VimassUHFUploadVideo\bin\Debug\AForge.Video.dll
+D:\VimassUHFUploadVideo_updateSv\VimassUHFUploadVideo\bin\Debug\AForge.Video.FFMPEG.dll
+D:\VimassUHFUploadVideo_updateSv\VimassUHFUploadVideo\bin\Debug\AForge.Video.VFW.dll
+D:\VimassUHFUploadVideo_updateSv\VimassUHFUploadVideo\bin\Debug\Newtonsoft.Json.dll
+D:\VimassUHFUploadVideo_updateSv\VimassUHFUploadVideo\bin\Debug\AForge.xml
+D:\VimassUHFUploadVideo_updateSv\VimassUHFUploadVideo\bin\Debug\AForge.Video.xml
+D:\VimassUHFUploadVideo_updateSv\VimassUHFUploadVideo\bin\Debug\AForge.Video.DirectShow.xml
+D:\VimassUHFUploadVideo_updateSv\VimassUHFUploadVideo\bin\Debug\Newtonsoft.Json.xml
+D:\VimassUHFUploadVideo_updateSv\VimassUHFUploadVideo\obj\Debug\VimassUHFUploadVideo.csproj.AssemblyReference.cache
+D:\VimassUHFUploadVideo_updateSv\VimassUHFUploadVideo\obj\Debug\VimassUHFUploadVideo.csproj.SuggestedBindingRedirects.cache
+D:\VimassUHFUploadVideo_updateSv\VimassUHFUploadVideo\obj\Debug\VimassUHFUploadVideo.AddTIDUID.resources
+D:\VimassUHFUploadVideo_updateSv\VimassUHFUploadVideo\obj\Debug\VimassUHFUploadVideo.Form1.resources
+D:\VimassUHFUploadVideo_updateSv\VimassUHFUploadVideo\obj\Debug\VimassUHFUploadVideo.HHTIN.resources
+D:\VimassUHFUploadVideo_updateSv\VimassUHFUploadVideo\obj\Debug\VimassUHFUploadVideo.HHTOUT.resources
+D:\VimassUHFUploadVideo_updateSv\VimassUHFUploadVideo\obj\Debug\VimassUHFUploadVideo.TEST.resources
+D:\VimassUHFUploadVideo_updateSv\VimassUHFUploadVideo\obj\Debug\VimassUHFUploadVideo.TKIN.resources
+D:\VimassUHFUploadVideo_updateSv\VimassUHFUploadVideo\obj\Debug\VimassUHFUploadVideo.Properties.Resources.resources
+D:\VimassUHFUploadVideo_updateSv\VimassUHFUploadVideo\obj\Debug\VimassUHFUploadVideo.TKOUT.resources
+D:\VimassUHFUploadVideo_updateSv\VimassUHFUploadVideo\obj\Debug\VimassUHFUploadVideo.csproj.GenerateResource.cache
+D:\VimassUHFUploadVideo_updateSv\VimassUHFUploadVideo\obj\Debug\VimassUHFUploadVideo.csproj.CoreCompileInputs.cache
+D:\VimassUHFUploadVideo_updateSv\VimassUHFUploadVideo\obj\Debug\VimassUHFUploadVideo.csproj.CopyComplete
+D:\VimassUHFUploadVideo_updateSv\VimassUHFUploadVideo\obj\Debug\VimassUHFUploadVideo.exe
+D:\VimassUHFUploadVideo_updateSv\VimassUHFUploadVideo\obj\Debug\VimassUHFUploadVideo.pdb
+D:\VimassUHFUploadVideo_updateSv\VimassUHFUploadVideo\obj\Debug\VimassUHFUploadVideo.Form2.resources
+D:\VimassUHFUploadVideo_updateSv\VimassUHFUploadVideo\obj\Debug\VimassUHFUploadVideo.FormConfig.resources
+D:\VimassUHFUploadVideo_updateSv\VimassUHFUploadVideo\obj\Debug\VimassUHFUploadVideo.FormCheck.resources
+D:\VimassUHFUploadVideo_updateSv\VimassUHFUploadVideo\obj\Debug\VimassUHFUploadVideo.Search.resources
+D:\VimassUHFUploadVideo_updateSv\VimassUHFUploadVideo\obj\Debug\VimassUHFUploadVideo.CreatEPCNew.resources
+D:\VimassUHFUploadVideo_updateSv\VimassUHFUploadVideo\obj\Debug\VimassUHFUploadVideo.ExceltoJson.resources
+D:\VimassUHFUploadVideo_updateSv\VimassUHFUploadVideo\obj\Debug\VimassUHFUploadVideo.Login.resources
+D:\VimassUHFUploadVideo_updateSv\VimassUHFUploadVideo\bin\Debug\selenium-manager\linux\selenium-manager
+D:\VimassUHFUploadVideo_updateSv\VimassUHFUploadVideo\bin\Debug\selenium-manager\macos\selenium-manager
+D:\VimassUHFUploadVideo_updateSv\VimassUHFUploadVideo\bin\Debug\selenium-manager\windows\selenium-manager.exe
+D:\VimassUHFUploadVideo_updateSv\VimassUHFUploadVideo\bin\Debug\GoogleMaps.LocationServices.dll
+D:\VimassUHFUploadVideo_updateSv\VimassUHFUploadVideo\bin\Debug\HtmlAgilityPack.dll
+D:\VimassUHFUploadVideo_updateSv\VimassUHFUploadVideo\bin\Debug\WebDriver.dll
+D:\VimassUHFUploadVideo_updateSv\VimassUHFUploadVideo\bin\Debug\HtmlAgilityPack.pdb
+D:\VimassUHFUploadVideo_updateSv\VimassUHFUploadVideo\bin\Debug\HtmlAgilityPack.xml
+D:\VimassUHFUploadVideo_updateSv\VimassUHFUploadVideo\obj\Debug\VimassUHFUploadVideo.ConvertExcelToJson.resources
+D:\VimassUHFUploadVideo_updateSv\VimassUHFUploadVideo\obj\Debug\VimassUHFUploadVideo.GetDataStore.resources
+D:\VimassUHFUploadVideo_updateSv\VimassUHFUploadVideo\obj\Debug\VimassUHFUploadVideo.GetLatLng.resources
+D:\VimassUHFUploadVideo_updateSv\VimassUHFUploadVideo\obj\Debug\VimassUHFUploadVideo.LatLong.resources
+D:\VimassUHFUploadVideo_updateSv\VimassUHFUploadVideo\obj\Debug\VimassUHFUploadVideo.ReadFileDone.resources
+D:\VimassUHFUploadVideo_updateSv\VimassUHFUploadVideo\obj\Debug\VimassUHFUploadVideo.ShowData.resources
+D:\VimassUHFUploadVideo_updateSv\VimassUHFUploadVideo\obj\Debug\VimassUHFUploadVideo.TestTer.resources
+D:\VimassUHFUploadVideo_updateSv\VimassUHFUploadVideo\obj\Debug\VimassUHFUploadVideo.AutoVpass.resources
+D:\VimassUHFUploadVideo_updateSv\VimassUHFUploadVideo\obj\Debug\VimassUHFUploadVideo.FormSearchTheoTemThe.resources
+D:\VimassUHFUploadVideo_updateSv\VimassUHFUploadVideo\obj\Debug\VimassUHFUploadVideo.LayChamCong.resources
+D:\VimassUHFUploadVideo_updateSv\VimassUHFUploadVideo\obj\Debug\VimassUHFUploadVideo.FormHienThiCheAutoIT.resources
+D:\VimassUHFUploadVideo_updateSv\VimassUHFUploadVideo\obj\Debug\VimassUHFUploadVideo.DayAnhLenSerVer.resources

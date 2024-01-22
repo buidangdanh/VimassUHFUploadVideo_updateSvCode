@@ -1,1 +1,6 @@
 packages/ filter=lfs diff=lfs merge=lfs -text
+VimassUHFUploadVideo/bin/x64/Debug/IKVM.Java.dll filter=lfs diff=lfs merge=lfs -text
+[200~packages/IKVM.8.2.3/lib/netcoreapp3.1/IKVM.Java.dll~ filter=lfs diff=lfs merge=lfs -text
+packages/IKVM.8.2.3/lib/netcoreapp3.1/IKVM.Java.dll filter=lfs diff=lfs merge=lfs -text
+packages/IKVM.8.2.3/IKVM.8.2.3.nupkg filter=lfs diff=lfs merge=lfs -text
+packages/IKVM.8.2.3/tasks/net472/IKVM.Java.pdb filter=lfs diff=lfs merge=lfs -text

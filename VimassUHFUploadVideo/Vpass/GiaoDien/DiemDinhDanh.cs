@@ -16,6 +16,7 @@ using System.Diagnostics;
 using OpenQA.Selenium.DevTools;
 using VimassUHFUploadVideo;
 using System.Security.Policy;
+using System.Globalization;
 
 namespace VimassUHFUploadVideo.Vpass.GiaoDien
 {
@@ -50,13 +51,9 @@ namespace VimassUHFUploadVideo.Vpass.GiaoDien
             try
             {
                 ObjectDsDiemTheoToaDo obj = new ObjectDsDiemTheoToaDo();
-                obj.timeRequest = 1705839117218;
+                obj.timeRequest = FunCGeneral.timeNow();
                 obj.VMApp = 5;
                 obj.ip = "193.169.1.11";
-
-                //   obj.lng= Double. parseDouble(arrLatLng[1]);
-                //   obj.lat= Double. parseDouble(arrLatLng[0]);
-                //  	  21.0074402,105.8055788
                 obj.lat = 21.0074402;
                 obj.lng = 105.8055788;
 
@@ -69,18 +66,14 @@ namespace VimassUHFUploadVideo.Vpass.GiaoDien
                 obj.keySearch = "";
                 obj.offset = 0;
                 obj.user = "";
-                obj.checkSum = FunctionGeneral.Md5("Y4SkpSofFAgsR27fMBM02SNoV9iPI2CBo0ZCImM6EgnfXikl3en3VfWyTwfLLTC883yJC" + obj.funcId + obj.km + obj.lat + obj.lng + obj.limit + obj.offset + obj.timeRequest + obj.user + obj.ip + obj.userLTV + obj.trangThai).ToLower();
-
-                Debug.WriteLine("Md5: " + "Y4SkpSofFAgsR27fMBM02SNoV9iPI2CBo0ZCImM6EgnfXikl3en3VfWyTwfLLTC883yJC" + obj.funcId + obj.km + obj.lat + obj.lng + obj.limit + obj.offset + obj.timeRequest + obj.user + obj.ip + obj.userLTV + obj.trangThai);
+                obj.checkSum = FunctionGeneral.Md5("Y4SkpSofFAgsR27fMBM02SNoV9iPI2CBo0ZCImM6EgnfXikl3en3VfWyTwfLLTC883yJC" + obj.funcId + obj.km.ToString(CultureInfo.InvariantCulture) + obj.lat.ToString(CultureInfo.InvariantCulture) + obj.lng.ToString(CultureInfo.InvariantCulture) + obj.limit + obj.offset + obj.timeRequest + obj.user + obj.ip + obj.userLTV + obj.trangThai).ToLower();
                 String url = "http://103.21.150.8:62168/toaDoVimass/services/toaDoVimass/requestCommand";
-                //var json = JsonConvert.SerializeObject(obj);
-                var json = "{\"timeRequest\":1705839117218,\"VMApp\":5,\"checkSum\":\"0074b89790deff9d63fff35ab180881e\",\"ip\":\"193.169.1.11\",\"lng\":105.8055788,\"lat\":21.0074402,\"km\":0.3,\"catId\":\"1020\",\"funcId\":59,\"userLTV\":\"0981455707\",\"trangThai\":1,\"limit\":500,\"keySearch\":\"\",\"offset\":0,\"user\":\"\"}";
+                var json = JsonConvert.SerializeObject(obj);
                 String res = Service.SendWebrequest_POST_Method(json, url);
                 Response response = JsonConvert.DeserializeObject<Response>(res);
-                String k1 = FunctionGeneral.Md5("1" + "Y4SkpSofFAgsR27fMBM02SNoV9iPI2CBo0ZCImM6EgnfXikl3en3VfWyTwfLLTC883yJC" + 1705839117218 + 5).ToLower();
-                String k2 = FunctionGeneral.Md5("2" + "Y4SkpSofFAgsR27fMBM02SNoV9iPI2CBo0ZCImM6EgnfXikl3en3VfWyTwfLLTC883yJC" + 1705839117218 + 5).ToLower();
-                String k3 = FunctionGeneral.Md5("3" + "Y4SkpSofFAgsR27fMBM02SNoV9iPI2CBo0ZCImM6EgnfXikl3en3VfWyTwfLLTC883yJC" + 1705839117218 + 5).ToLower();
-                Debug.WriteLine(k1 + " " + k2 + " " + k3);
+                String k1 = FunctionGeneral.Md5("1" + "Y4SkpSofFAgsR27fMBM02SNoV9iPI2CBo0ZCImM6EgnfXikl3en3VfWyTwfLLTC883yJC" + obj.timeRequest + 5).ToLower();
+                String k2 = FunctionGeneral.Md5("2" + "Y4SkpSofFAgsR27fMBM02SNoV9iPI2CBo0ZCImM6EgnfXikl3en3VfWyTwfLLTC883yJC" + obj.timeRequest + 5).ToLower();
+                String k3 = FunctionGeneral.Md5("3" + "Y4SkpSofFAgsR27fMBM02SNoV9iPI2CBo0ZCImM6EgnfXikl3en3VfWyTwfLLTC883yJC" + obj.timeRequest + 5).ToLower();
                 if (response != null && response.msgCode == 1)
                 {
                     String resul = FunctionGeneral.DecryptTripleDES(k1, k2, k3, response.result.ToString());

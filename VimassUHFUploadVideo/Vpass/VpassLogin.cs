@@ -122,7 +122,7 @@ namespace VimassUHFUploadVideo.Vpass
                         if (lSKQ != null && !lSKQ.dienThoai.Equals("") && !lSKQ.hoTen.Equals(""))
                         {
                             FunCGeneral.lGinKQ.phone = lSKQ.dienThoai;
-                            FunCGeneral.lGinKQ.soThe = lSKQ.idVid;
+                            FunCGeneral.lGinKQ.soThe = "V"+ lSKQ.idVid;
                             FunCGeneral.lGinKQ.hoTen = lSKQ.hoTen;
                             Logger.LogServices("Dang nhap the thanh cong: " + FunCGeneral.lGinKQ.soThe);
                             this.Hide();

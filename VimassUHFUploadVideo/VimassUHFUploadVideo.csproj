@@ -555,6 +555,7 @@
     <Compile Include="Vpass\Object\ObjectLichSuRaVaoQuetQr.cs" />
     <Compile Include="Vpass\Object\ObjectLoginSDT.cs" />
     <Compile Include="Vpass\Object\ObjectLoginThe.cs" />
+    <Compile Include="Vpass\Object\ObjectNguoiDung\checkMatRequest.cs" />
     <Compile Include="Vpass\Object\ObjectQuyenHeThong.cs" />
     <Compile Include="Vpass\Object\ObjectResInfoThe.cs" />
     <Compile Include="Vpass\Object\ObjectResLayThongTinTuSDT.cs" />

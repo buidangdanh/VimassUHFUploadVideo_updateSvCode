@@ -803,11 +803,13 @@ namespace VimassUHFUploadVideo.Vpass.GiaoDien
                             // code block to be executed if expression equals value1
                             break;
                         case 1:
-                            hienThiChiTietThe(tenThietBi);
+                            hienThiChiTietThe(tenThietBi); 
+                            dataGridView2.CurrentCell = null;
                             break;
                         // You can have any number of case statements.
                         case 2:
                             hienThiChiTietKhoa(tenThietBi);
+                            dataGridView2.CurrentCell = null;
                             break;
                         // You can have any number of case statements.
                         case 3:
@@ -824,14 +826,17 @@ namespace VimassUHFUploadVideo.Vpass.GiaoDien
                         // You can have any number of case statements.
                         case 6:
                             hienThiChiTiet(tenThietBi);
+                            dataGridView2.CurrentCell = null;
                             break;
                         // You can have any number of case statements.
                         case 7:
                             hienThiChiTiet(tenThietBi);
+                            dataGridView2.CurrentCell = null;
                             break;
                         // You can have any number of case statements.
                         case 8:
                             hienThiChiTietWifi(tenThietBi);
+                            dataGridView2.CurrentCell = null;
                             break;
                         // You can have any number of case statements.
                         case 9:
@@ -839,9 +844,11 @@ namespace VimassUHFUploadVideo.Vpass.GiaoDien
                             break;
                         case 10:
                             hienThiChiTietQR(tenThietBi);
+                            dataGridView2.CurrentCell = null;
                             break;
                         case 11:
                             hienThiChiTiet(tenThietBi);
+                            dataGridView2.CurrentCell = null;
                             break;
                         default:
                             // code block to be executed if no case matches
@@ -1141,6 +1148,8 @@ namespace VimassUHFUploadVideo.Vpass.GiaoDien
                 thayDoiKichThuocQR1();
                 thayDoiKichThuocQR2();
                 hienThiQR();
+                dataGridView1.CurrentCell = null;
+                dataGridView2.CurrentCell = null;
 
             }
             catch (Exception ex)
@@ -1406,6 +1415,8 @@ namespace VimassUHFUploadVideo.Vpass.GiaoDien
                 thayDoiKichThuocThe1();
                 thayDoiKichThuocThe2();
                 hienThiThe();
+                dataGridView1.CurrentCell = null;
+                dataGridView2.CurrentCell = null;
 
             }
             catch (Exception ex)
@@ -1491,6 +1502,8 @@ namespace VimassUHFUploadVideo.Vpass.GiaoDien
                 thayDoiKichThuocKhoa1();
                 thayDoiKichThuocKhoa2();
                 hienThiKhoa();
+                dataGridView1.CurrentCell = null;
+                dataGridView2.CurrentCell = null;
 
             }
             catch (Exception ex)
@@ -1597,6 +1610,8 @@ namespace VimassUHFUploadVideo.Vpass.GiaoDien
                 thayDoiKichThuocWifi1();
                 thayDoiKichThuocWifi2();
                 hienThiWifi();
+                dataGridView1.CurrentCell = null;
+                dataGridView2.CurrentCell = null;
 
             }
             catch (Exception ex)
@@ -1762,6 +1777,8 @@ namespace VimassUHFUploadVideo.Vpass.GiaoDien
                 thayDoiKichThuocVpass1();
                 thayDoiKichThuoVpass2();
                 hienThiVpass();
+                dataGridView1.CurrentCell = null;
+                dataGridView2.CurrentCell = null;
 
 
             }

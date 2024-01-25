@@ -15,6 +15,8 @@ Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "SetupNew", "SetupNew\SetupN
 EndProject
 Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "VpassAuto", "VpassAuto\VpassAuto.vdproj", "{6B80E931-15F3-46A7-8EBB-3D89FD1997D1}"
 EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "VpassView", "VpassView\VpassView.vdproj", "{93040384-7FB4-4EB3-9288-8CA01737000B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -75,6 +77,12 @@ Global
 		{6B80E931-15F3-46A7-8EBB-3D89FD1997D1}.Release|Any CPU.ActiveCfg = Release
 		{6B80E931-15F3-46A7-8EBB-3D89FD1997D1}.Release|x64.ActiveCfg = Release
 		{6B80E931-15F3-46A7-8EBB-3D89FD1997D1}.Release|x86.ActiveCfg = Release
+		{93040384-7FB4-4EB3-9288-8CA01737000B}.Debug|Any CPU.ActiveCfg = Debug
+		{93040384-7FB4-4EB3-9288-8CA01737000B}.Debug|x64.ActiveCfg = Debug
+		{93040384-7FB4-4EB3-9288-8CA01737000B}.Debug|x86.ActiveCfg = Debug
+		{93040384-7FB4-4EB3-9288-8CA01737000B}.Release|Any CPU.ActiveCfg = Release
+		{93040384-7FB4-4EB3-9288-8CA01737000B}.Release|x64.ActiveCfg = Release
+		{93040384-7FB4-4EB3-9288-8CA01737000B}.Release|x86.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

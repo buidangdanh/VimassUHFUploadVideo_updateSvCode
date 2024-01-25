@@ -16,6 +16,8 @@ using TextBox = System.Windows.Forms.TextBox;
 using Button = System.Windows.Forms.Button;
 using VimassUHFUploadVideo;
 using com.sun.org.apache.bcel.@internal.generic;
+using System.Threading;
+using VimassUHFUploadVideo.Vpass.Object.ObjectNguoiDung;
 
 namespace VimassUHFUploadVideo.Vpass.GiaoDien
 {
@@ -93,8 +95,8 @@ namespace VimassUHFUploadVideo.Vpass.GiaoDien
             // panelMain là tên của Panel trên form của bạn
             // Thêm UserControl vào panel
             // panelContainer.Controls.Add(textBox);
-            capNhatNhomServerComau();
-              panelContainer2 = this.flowLayoutPanel2;
+            HienNhomCoMau();
+            panelContainer2 = this.flowLayoutPanel2;
             //Phần tìm kiếm
             textBox = new TextBox();
             textBox.Multiline = true;
@@ -122,7 +124,7 @@ namespace VimassUHFUploadVideo.Vpass.GiaoDien
 
         private void ButtonClick2(object sender, EventArgs e)
         {
-            capNhatNhomServerComau();
+            HienNhomCoMau();
         }
         private void ButtonClick(object sender, EventArgs e)
         {
@@ -197,12 +199,10 @@ namespace VimassUHFUploadVideo.Vpass.GiaoDien
 
         }
 
-        public void capNhatNhom()
+        public static List<ObjectGoup> layNhomLocal()
         {
             try
             {
-                dataGridView1.Rows.Clear();
-                FunCGeneral.hashNhom.Clear();
                 ObjectGoiDichVuMini o = new ObjectGoiDichVuMini();
                 o.funcId = 11801;
                 o.device = 2;
@@ -228,23 +228,13 @@ namespace VimassUHFUploadVideo.Vpass.GiaoDien
                     ResultResponeMini value = JsonConvert.DeserializeObject<ResultResponeMini>(response.result.ToString());
                     String valueTraVe = FunctionGeneral.DecodeBase64String(value.value);
                     listGroup = JsonConvert.DeserializeObject<List<ObjectGoup>>(valueTraVe);
-
-
-                    for (int i = 0; i < listGroup.Count(); i++)
-                    {
-                        FunCGeneral.hashNhom.Add(listGroup[i].groupName, listGroup[i]);
-                        Debug.WriteLine(listGroup[i].groupName);
-                        int stt = i + 1;
-                        dataGridView1.Rows.Add("Nhóm " + stt, listGroup[i].groupName);
-                        dataGridView1.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-                        HienThiNhom(listGroup[0].groupName);
-                    }
                 }
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
+            return listGroup;
         }
 
         public void capNhatNhomServer()
@@ -276,7 +266,7 @@ namespace VimassUHFUploadVideo.Vpass.GiaoDien
                 MessageBox.Show(ex.Message);
             }
         }
-        public void capNhatNhomServerComau()
+        public void HienNhomCoMau()
         {
             try
             {
@@ -310,6 +300,15 @@ namespace VimassUHFUploadVideo.Vpass.GiaoDien
                     dataGridView1.Rows.Add(newRow);
                     HienThiNhom(listGroup[0].groupName);
                 }
+                // Đặt chế độ chọn của DataGridView là FullRowSelect để khi bạn chọn một ô, cả hàng sẽ được chọn.
+
+
+                // Bây giờ, chọn hàng đầu tiên.
+                dataGridView1.Rows[0].DefaultCellStyle.BackColor = Color.FromArgb(0, 120, 215); // Màu khi hàng được chọn
+
+
+                dataGridView2.CurrentCell = null;
+
 
             }
             catch (Exception ex)
@@ -396,7 +395,45 @@ namespace VimassUHFUploadVideo.Vpass.GiaoDien
 
             }
         }
-        public void HienThiCoPhanTrang(int offSet, List<ObjListPer> itemHash, String groupName)
+        public async void HienThiCoPhanTrang(int offSet, List<ObjListPer> itemHash, String groupName)
+        {
+            try
+            {
+                dataGridView2.Rows.Clear();
+                int i = 1;
+                for (int i2 = 0; i2 < itemHash.Count(); i2++)
+                {
+
+                    if (itemHash[i2].sdt != null && !itemHash[i2].sdt.Equals(""))
+                    {
+                        dataGridView2.Rows.Add(i, itemHash[i2].sdt, itemHash[i2].name.Trim().Replace("  ", "").Replace("\r", "").Replace("\n", "").Replace("\t", "").Replace("\u0000", ""), itemHash[i2].chucDanh, groupName, "");
+                        dataGridView2.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                    }
+                    else
+                    {
+                        if (false)
+                        {
+                            dataGridView2.Rows.Add(i, itemHash[i2].vID, itemHash[i2].name.Trim().Replace("  ", "").Replace("\r", "").Replace("\n", "").Replace("\t", ""), itemHash[i2].chucDanh, groupName, "v");
+                            dataGridView2.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                        }
+                        else
+                        {
+                            dataGridView2.Rows.Add(i, itemHash[i2].vID, itemHash[i2].name.Trim().Replace("  ", "").Replace("\r", "").Replace("\n", "").Replace("\t", "").Replace("\u0000", ""), itemHash[i2].chucDanh, groupName, "");
+                            dataGridView2.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                        }
+
+                    }
+                    i++;
+                }
+            }
+            catch (Exception ex)
+            {
+                Logger.LogServices("HienThiCoPhanTrang Exception: " + ex.Message);
+
+            }
+
+        }
+        public async void HienThiCoPhanTrang2(int offSet, List<ObjListPer> itemHash, String groupName)
         {
             try
             {
@@ -412,7 +449,7 @@ namespace VimassUHFUploadVideo.Vpass.GiaoDien
                     }
                     else
                     {
-                        if (checkMat(itemHash[i2].vID))
+                        if (await checkMatThread((itemHash[i2].vID)))
                         {
                             dataGridView2.Rows.Add(i, itemHash[i2].vID, itemHash[i2].name.Trim().Replace("  ", "").Replace("\r", "").Replace("\n", "").Replace("\t", ""), itemHash[i2].chucDanh, groupName,"v");
                             dataGridView2.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
@@ -427,11 +464,14 @@ namespace VimassUHFUploadVideo.Vpass.GiaoDien
                     i++;
                 }
             }
-            catch (Exception e)
+            catch (Exception ex)
             {
+                Logger.LogServices("HienThiCoPhanTrang Exception: " + ex.Message);
+
             }
 
         }
+
         FlowLayoutPanel panelContainer1;
         FlowLayoutPanel panelContainer2;
         public void themPhanTrangVaoPanel(int SoTrang)
@@ -583,6 +623,7 @@ namespace VimassUHFUploadVideo.Vpass.GiaoDien
                                 //themPhanTrangVaoPanel(itemHash.Value.listPer.Count());
                                 HienThiCoPhanTrang(0, itemHash.Value.listPer, itemHash.Key);
                             }
+                            goiLayKhuonMat(itemHash.Value.listPer);
                            /* else
                             {
                                 for (int i2 = 0; i2 < 100; i2++)
@@ -622,12 +663,131 @@ namespace VimassUHFUploadVideo.Vpass.GiaoDien
                         }
                     }
                 }
+                
             }
             catch (Exception e)
             {
                 Logger.LogServices("HienThiNhom Exception: " + e.Message);
             }
         }
+        // Khai báo ở mức độ lớp
+        private CancellationTokenSource cancellationTokenSource;
+        private void goiLayKhuonMat(List<ObjListPer> listPer)
+        {
+            CancelTasks();
+            cancellationTokenSource = new CancellationTokenSource();
+            var token = cancellationTokenSource.Token;
+
+            try
+            {
+                List<Task> tasks = new List<Task>();
+
+                for (int i = 0; i < listPer.Count(); i++)
+                {
+                    int index = i;
+                    Task task = Task.Run(() =>
+                    {
+                        if (token.IsCancellationRequested)
+                        {
+                            // Nếu task đã bị hủy, thoát khỏi task
+                            return;
+                        }
+
+                        bool result = false;
+                        if (listPer[index].vID != null && !listPer[index].vID.Equals(""))
+                        {
+                            result = checkMat10603(listPer[index]);
+                        }
+
+                        if (!IsDisposed && IsHandleCreated)
+                        {
+                            Invoke(new Action(() =>
+                            {
+                                if (dataGridView2.Rows.Count > index)
+                                {
+                                    dataGridView2.Rows[index].Cells["Column7"].Value = result ? "v" : "";
+                                }
+                            }));
+                        }
+
+                    }, token);
+
+                    tasks.Add(task);
+                }
+
+                Task.WhenAll(tasks).ContinueWith(t =>
+                {
+                    // Các thao tác sau khi tất cả các tasks hoàn thành, nếu cần
+                }, token);
+            }
+            catch (Exception e)
+            {
+                // Xử lý ngoại lệ
+            }
+        }
+        private void goiLayKhuonMat2(List<ObjListPer> listPer)
+        {
+            CancelTasks();
+            cancellationTokenSource = new CancellationTokenSource();
+            var token = cancellationTokenSource.Token;
+
+            try
+            {
+                List<Task> tasks = new List<Task>();
+
+                for (int i = 0; i < listPer.Count(); i++)
+                {
+                    int index = i;
+                    Task task = Task.Run(() =>
+                    {
+                        if (token.IsCancellationRequested)
+                        {
+                            // Nếu task đã bị hủy, thoát khỏi task
+                            return;
+                        }
+
+                        bool result = false;
+                        if (listPer[index].vID != null && !listPer[index].vID.Equals(""))
+                        {
+                            result = checkMat10602(listPer[index].vID);
+                        }
+
+                        if (!IsDisposed && IsHandleCreated)
+                        {
+                            Invoke(new Action(() =>
+                            {
+                                if (dataGridView2.Rows.Count > index)
+                                {
+                                    dataGridView2.Rows[index].Cells["Column7"].Value = result ? "v" : "";
+                                }
+                            }));
+                        }
+
+                    }, token);
+
+                    tasks.Add(task);
+                }
+
+                Task.WhenAll(tasks).ContinueWith(t =>
+                {
+                    // Các thao tác sau khi tất cả các tasks hoàn thành, nếu cần
+                }, token);
+            }
+            catch (Exception e)
+            {
+                // Xử lý ngoại lệ
+            }
+        }
+        // Gọi phương thức này khi bạn chuyển sang tab khác
+        public void CancelTasks()
+        {
+            if (cancellationTokenSource != null)
+            {
+                cancellationTokenSource.Cancel();
+            }
+        }
+
+
 
         private void ButtonClick1(object sender, EventArgs e)
         {
@@ -651,6 +811,7 @@ namespace VimassUHFUploadVideo.Vpass.GiaoDien
         {
             if (e.ColumnIndex == dataGridView1.Columns["Column3"].Index && e.RowIndex >= 0)
             {
+
                 e.Paint(e.CellBounds, DataGridViewPaintParts.All & ~DataGridViewPaintParts.ContentForeground);
 
                 Image myIcon = Properties.Resources.thungrac; // Giả sử đây là icon của bạn
@@ -720,6 +881,7 @@ namespace VimassUHFUploadVideo.Vpass.GiaoDien
 
                 // You can replace "ColumnName1", "ColumnName2", etc. with your actual column names or indices
                 HienThiNhom(tenNhom);
+                dataGridView2.CurrentCell = null;
             }
         }
         public static List<ObjectGoup> layNhomTuSerVer()
@@ -780,7 +942,7 @@ namespace VimassUHFUploadVideo.Vpass.GiaoDien
                             if (response != null && response.msgCode == 1)
                             {
                                 MessageBox.Show("Xóa nhóm " + key + " thành công");
-                                capNhatNhomServerComau();
+                                HienNhomCoMau();
 
 
                             }
@@ -911,6 +1073,7 @@ namespace VimassUHFUploadVideo.Vpass.GiaoDien
                     column.HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
 
                 }
+              
 
             }
             catch (Exception ex)
@@ -946,6 +1109,7 @@ namespace VimassUHFUploadVideo.Vpass.GiaoDien
                 dataGridView2.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(242, 249, 255); // Chọn màu bạn muốn
                 dataGridView2.EnableHeadersVisualStyles = false; // Cần thiết để màu tùy chỉnh có hiệu lực
                 dataGridView2.ReadOnly = true;
+                dataGridView2.CurrentCell = null;
 
                 foreach (DataGridViewColumn column in dataGridView2.Columns)
                 {
@@ -1006,8 +1170,8 @@ namespace VimassUHFUploadVideo.Vpass.GiaoDien
                 int totalWidth = dataGridView2.Width - SystemInformation.VerticalScrollBarWidth;
 
                 // Thiết lập tỉ lệ cho từng cột
-                dataGridView2.Columns["Column1"].Width = (int)(totalWidth * 0.1); // 50% chiều rộng STT
-                dataGridView2.Columns["Column2"].Width = (int)(totalWidth * 0.6); // 30% chiều rộng Tên
+                dataGridView2.Columns["Column1"].Width = (int)(totalWidth * 0.05); // 50% chiều rộng STT
+                dataGridView2.Columns["Column2"].Width = (int)(totalWidth * 0.65); // 30% chiều rộng Tên
                 dataGridView2.Columns["Column3"].Width = (int)(totalWidth * 0.25); // 30% chiều rộng Tên
                 dataGridView2.Columns["Column6"].Width = (int)(totalWidth * 0.05); // 30% chiều rộng Tên
             }
@@ -1018,8 +1182,52 @@ namespace VimassUHFUploadVideo.Vpass.GiaoDien
 
 
         }
-        public static bool checkMat(String vID)
+        public static bool checkMat10603(ObjListPer obj)
         {
+
+            bool kq = false;
+            try
+            {
+                ObjectGoiDichVuMini o = new ObjectGoiDichVuMini();
+                o.funcId = 10603;
+                o.device = 2;
+                o.currentime = FunCGeneral.timeNow();
+
+                checkMatRequest oLDSGR = new checkMatRequest();
+
+
+                // Truy cập TextBox từ form
+                oLDSGR.textSearch = obj.vID.Replace("v", "").Replace("V", "");
+                oLDSGR.perNum = obj.perNum;
+                o.data = JsonConvert.SerializeObject(oLDSGR);
+
+                String url = FunCGeneral.ipMayChuDonVi;
+                var json = JsonConvert.SerializeObject(o);
+                String res = Service.SendWebrequest_POST_Method(json, url);
+                Response response = JsonConvert.DeserializeObject<Response>(res);
+
+                if (response != null && response.msgCode == 1)
+                {
+
+                    ResultResponeMini value = JsonConvert.DeserializeObject<ResultResponeMini>(response.result.ToString());
+                    String valueTraVe = FunctionGeneral.DecodeBase64String(value.value);
+                    ObjectInfoVid arrL = JsonConvert.DeserializeObject<ObjectInfoVid>(valueTraVe);
+                    if (arrL != null&& arrL.faceData!=null && !arrL.faceData.Equals(""))
+                    {
+                        kq = true;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Logger.LogServices("checkMat Exception: " + ex.Message);
+
+            }
+            return kq;
+        }
+        public static bool checkMat10602(String vID)
+        {
+           
             bool kq = false;
             try
             {
@@ -1060,6 +1268,50 @@ namespace VimassUHFUploadVideo.Vpass.GiaoDien
                 Logger.LogServices("checkMat Exception: " + ex.Message);
 
             }
+            return kq;
+        }
+        public static async Task<bool> checkMatThread(String vID)
+        {
+            bool kq = false;
+            try
+            {
+                ObjectGoiDichVuMini o = new ObjectGoiDichVuMini();
+                o.funcId = 10602;
+                o.device = 2;
+                o.currentime = FunCGeneral.timeNow();
+
+                ObjectGetInfoVID oLDSGR = new ObjectGetInfoVID();
+                oLDSGR.mcID = FunCGeneral.mcID;
+                oLDSGR.offset = 0;
+                oLDSGR.limit = 100;
+                oLDSGR.typeFace = 1;
+                // Truy cập TextBox từ form
+                oLDSGR.textSearch = vID.Replace("v", "").Replace("V", "");
+                o.data = JsonConvert.SerializeObject(oLDSGR);
+
+                String url = FunCGeneral.ipMayChuDonVi;
+                //String url = "http://113.190.248.142:58080/autobank/services/vimassTool/dpDanh";
+                var json = JsonConvert.SerializeObject(o);
+                String res = Service.SendWebrequest_POST_Method(json, url);
+                Response response = JsonConvert.DeserializeObject<Response>(res);
+
+                if (response != null && response.msgCode == 1)
+                {
+
+                    ResultResponeMini value = JsonConvert.DeserializeObject<ResultResponeMini>(response.result.ToString());
+                    String valueTraVe = FunctionGeneral.DecodeBase64String(value.value);
+                    var arrL = JsonConvert.DeserializeObject<List<ObjectInfoVid>>(valueTraVe);
+                    if (arrL != null && arrL.Count > 0 && arrL[0].faceData != null && !arrL[0].faceData.Equals(""))
+                    {
+                        kq = true;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Exception: " + ex.Message);
+            }
+
             return kq;
         }
 

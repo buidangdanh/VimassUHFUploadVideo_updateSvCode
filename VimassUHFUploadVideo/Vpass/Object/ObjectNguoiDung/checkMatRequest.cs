@@ -10,5 +10,6 @@ namespace VimassUHFUploadVideo.Vpass.Object.ObjectNguoiDung
     {
         public String textSearch { get; set; }
         public int perNum { get; set; }
+        public String vID { get; set; }
     }
 }

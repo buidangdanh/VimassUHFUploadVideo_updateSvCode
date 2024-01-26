@@ -149,3 +149,4 @@ D:\VimassUHFUploadVideo_updateSv\VimassUHFUploadVideo\bin\x64\Debug\System.Memor
 D:\VimassUHFUploadVideo_updateSv\VimassUHFUploadVideo\bin\x64\Debug\System.Numerics.Vectors.xml
 D:\VimassUHFUploadVideo_updateSv\VimassUHFUploadVideo\bin\x64\Debug\System.Runtime.CompilerServices.Unsafe.xml
 D:\VimassUHFUploadVideo_updateSv\VimassUHFUploadVideo\obj\x64\Debug\VimassUHFUploadVideo.Vpass.GiaoDien.NhomForm.KhuonMat.resources
+D:\VimassUHFUploadVideo_updateSv\VimassUHFUploadVideo\obj\x64\Debug\VimassUHFUploadVideo.Vpass.GiaoDien.NhomForm.Sua.resources

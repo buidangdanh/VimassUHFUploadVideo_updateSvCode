@@ -125,13 +125,14 @@ namespace VimassUHFUploadVideo.Vpass.GiaoDien.NhomForm
                     {
                         ObjListPer objListPerThe = new ObjListPer();
                         objListPerThe.sdt = "";
-                        objListPerThe.name = layThongTinThe(textBox7.Text)[0].personName;
+                        objListPerThe.name = textBox1.Text;
                         objListPerThe.chucDanh = comboBox1.Text;
                         objListPerThe.idThietBi = "";
-                        objListPerThe.uID = layThongTinThe(textBox7.Text)[0].uID;
+                        objListPerThe.uID = layThongTinThe(textBox7.Text.Replace("V", ""))[0].uID;
                         objListPerThe.vID = textBox7.Text;
                         objListPerThe.avatar = "";
-                        objListPerThe.perNum = layThongTinThe(textBox7.Text)[0].personNumber;
+                        objListPerThe.perNum = 0;
+                       // objListPerThe.perNum = layThongTinThe(textBox7.Text.Replace("V", ""))[0].personNumber;
                         objListPerThe.type = 1;
                         ThemNhomMoi.hashListPers.Add(objListPerThe.vID, objListPerThe);
                         themVaoBangCache();
@@ -213,7 +214,7 @@ namespace VimassUHFUploadVideo.Vpass.GiaoDien.NhomForm
                 {
                     if (textBox7.Text != null && !textBox7.Text.Equals(""))
                     {
-                        kq = layThongTinThe(textBox7.Text)[0].personName;
+                        kq = layThongTinThe(idCheck)[0].personName;
                     }
                 }
 
@@ -231,7 +232,7 @@ namespace VimassUHFUploadVideo.Vpass.GiaoDien.NhomForm
             try
             {
                 ObjectTraThongTinThe objectTraThongTin = new ObjectTraThongTinThe();
-                objectTraThongTin.vID = textBox7.Text.Trim();
+                objectTraThongTin.vID = text;
                 objectTraThongTin.currentTime = FunCGeneral.timeNow();
                 objectTraThongTin.cks = FunctionGeneral.Md5("LJAuGHYaBe8dLy26" + objectTraThongTin.vID + "tenelntvahY04").ToLower();
 
@@ -256,7 +257,7 @@ namespace VimassUHFUploadVideo.Vpass.GiaoDien.NhomForm
         {
             try
             {
-                if (radioButton1.Checked)
+              /*  if (radioButton1.Checked)
                 {
                     if (textBox7.Text != null && !textBox7.Text.Equals("") && textBox7.Text.Length > 9)
                     {
@@ -268,10 +269,10 @@ namespace VimassUHFUploadVideo.Vpass.GiaoDien.NhomForm
                 {
                     if (textBox7.Text != null && !textBox7.Text.Equals("") && textBox7.Text.Length > 6)
                     {
-                        textBox1.Text = layName(textBox7.Text);
+                        textBox1.Text = layName(textBox7.Text.Replace("V",""));
                     }
 
-                }
+                }*/
 
             }
             catch (Exception ex)
@@ -303,7 +304,7 @@ namespace VimassUHFUploadVideo.Vpass.GiaoDien.NhomForm
 
         private void radioButton2_CheckedChanged(object sender, EventArgs e)
         {
-            textBox7.Text = "";
+            textBox7.Text = "V";
 
         }
 

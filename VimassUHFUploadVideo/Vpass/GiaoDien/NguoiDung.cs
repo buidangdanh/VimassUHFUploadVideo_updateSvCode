@@ -18,6 +18,7 @@ using VimassUHFUploadVideo;
 using com.sun.org.apache.bcel.@internal.generic;
 using System.Threading;
 using VimassUHFUploadVideo.Vpass.Object.ObjectNguoiDung;
+using VimassUHFUploadVideo.Vpass.GiaoDien.NhomForm;
 
 namespace VimassUHFUploadVideo.Vpass.GiaoDien
 {
@@ -41,6 +42,12 @@ namespace VimassUHFUploadVideo.Vpass.GiaoDien
         {
             panel1.BackColor = Color.FromArgb(166, 166, 166);
             //Thiet lap cac thuoc tinh cua dataGridView1
+            //Tạo cột ẩn
+            DataGridViewColumn columnID1 = new DataGridViewTextBoxColumn();
+            columnID1.HeaderText = "ID";
+            columnID1.Name = "ID";
+            columnID1.Visible = false; // Làm cho cột không hiển thị
+            dataGridView1.Columns.Add(columnID1);
             dataGridView1.Columns.Add("Column1", "STT");
             dataGridView1.Columns.Add("Column2", "Tên nhóm");
             DataGridViewImageColumn imgCol = new DataGridViewImageColumn();
@@ -50,6 +57,9 @@ namespace VimassUHFUploadVideo.Vpass.GiaoDien
                 imgCol.ImageLayout = DataGridViewImageCellLayout.Zoom; // Thiết lập layout để icon được zoom và căn giữa
             }
             dataGridView1.Columns.Add(imgCol);
+
+
+
             //Thiết lập font màu backcolor
             dataGridView1.DefaultCellStyle.Font = new Font("Segoe UI", 13); // Thay đổi kiểu chữ và cỡ chữ
             dataGridView1.RowTemplate.Height = 30; // Thay đổi chiều cao của hàng thành 30 pixel
@@ -65,6 +75,11 @@ namespace VimassUHFUploadVideo.Vpass.GiaoDien
 
             }
             //Thiet lap cac thuoc tinh cua trang
+            DataGridViewColumn columnID2 = new DataGridViewTextBoxColumn();
+            columnID2.HeaderText = "ID";
+            columnID2.Name = "ID";
+            columnID2.Visible = false; // Làm cho cột không hiển thị
+            dataGridView2.Columns.Add(columnID2);
             dataGridView2.Columns.Add("Column1", "STT");
             dataGridView2.Columns.Add("Column2", "Số điện thoại/số thẻ");
             dataGridView2.Columns.Add("Column3", "Họ tên");
@@ -77,6 +92,9 @@ namespace VimassUHFUploadVideo.Vpass.GiaoDien
                 imgColData2.ImageLayout = DataGridViewImageCellLayout.Zoom; // Thiết lập layout để icon được zoom và căn giữa
             }
             dataGridView2.Columns.Add(imgColData2);
+
+
+
             dataGridView2.DefaultCellStyle.Font = new Font("Segoe UI", 13); // Thay đổi kiểu chữ và cỡ chữ
             dataGridView2.RowTemplate.Height = 30; // Thay đổi chiều cao của hàng thành 30 pixel
             dataGridView2.BackgroundColor = Color.White;
@@ -284,7 +302,7 @@ namespace VimassUHFUploadVideo.Vpass.GiaoDien
                     int stt = i + 1;
 
                     DataGridViewRow newRow = new DataGridViewRow();
-                    newRow.CreateCells(dataGridView1, stt, listGroup[i].groupName);
+                    newRow.CreateCells(dataGridView1, listGroup[i].id, stt, listGroup[i].groupName);
                     newRow.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
                     newRow.Height = 30;
                     // Thay đổi màu dựa trên grouplevel
@@ -406,22 +424,13 @@ namespace VimassUHFUploadVideo.Vpass.GiaoDien
 
                     if (itemHash[i2].sdt != null && !itemHash[i2].sdt.Equals(""))
                     {
-                        dataGridView2.Rows.Add(i, itemHash[i2].sdt, itemHash[i2].name.Trim().Replace("  ", "").Replace("\r", "").Replace("\n", "").Replace("\t", "").Replace("\u0000", ""), itemHash[i2].chucDanh, groupName, "");
+                        dataGridView2.Rows.Add(itemHash[i2].id, i, itemHash[i2].sdt, itemHash[i2].name.Trim().Replace("  ", "").Replace("\r", "").Replace("\n", "").Replace("\t", "").Replace("\u0000", ""), itemHash[i2].chucDanh, groupName, "");
                         dataGridView2.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
                     }
                     else
                     {
-                        if (false)
-                        {
-                            dataGridView2.Rows.Add(i, itemHash[i2].vID, itemHash[i2].name.Trim().Replace("  ", "").Replace("\r", "").Replace("\n", "").Replace("\t", ""), itemHash[i2].chucDanh, groupName, "v");
-                            dataGridView2.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-                        }
-                        else
-                        {
-                            dataGridView2.Rows.Add(i, itemHash[i2].vID, itemHash[i2].name.Trim().Replace("  ", "").Replace("\r", "").Replace("\n", "").Replace("\t", "").Replace("\u0000", ""), itemHash[i2].chucDanh, groupName, "");
-                            dataGridView2.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-                        }
-
+                        dataGridView2.Rows.Add(itemHash[i2].id, i, itemHash[i2].vID, itemHash[i2].name.Trim().Replace("  ", "").Replace("\r", "").Replace("\n", "").Replace("\t", "").Replace("\u0000", ""), itemHash[i2].chucDanh, groupName, "");
+                        dataGridView2.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
                     }
                     i++;
                 }
@@ -444,22 +453,22 @@ namespace VimassUHFUploadVideo.Vpass.GiaoDien
 
                     if (itemHash[i2].sdt != null && !itemHash[i2].sdt.Equals(""))
                     {
-                        dataGridView2.Rows.Add(i, itemHash[i2].sdt, itemHash[i2].name.Trim().Replace("  ", "").Replace("\r", "").Replace("\n", "").Replace("\t", ""), itemHash[i2].chucDanh, groupName,"");
+                        dataGridView2.Rows.Add(i, itemHash[i2].sdt, itemHash[i2].name.Trim().Replace("  ", "").Replace("\r", "").Replace("\n", "").Replace("\t", ""), itemHash[i2].chucDanh, groupName, "");
                         dataGridView2.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
                     }
                     else
                     {
                         if (await checkMatThread((itemHash[i2].vID)))
                         {
-                            dataGridView2.Rows.Add(i, itemHash[i2].vID, itemHash[i2].name.Trim().Replace("  ", "").Replace("\r", "").Replace("\n", "").Replace("\t", ""), itemHash[i2].chucDanh, groupName,"v");
+                            dataGridView2.Rows.Add(i, itemHash[i2].vID, itemHash[i2].name.Trim().Replace("  ", "").Replace("\r", "").Replace("\n", "").Replace("\t", ""), itemHash[i2].chucDanh, groupName, "v");
                             dataGridView2.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
                         }
                         else
                         {
-                            dataGridView2.Rows.Add(i, itemHash[i2].vID, itemHash[i2].name.Trim().Replace("  ", "").Replace("\r", "").Replace("\n", "").Replace("\t", ""), itemHash[i2].chucDanh, groupName,"");
+                            dataGridView2.Rows.Add(i, itemHash[i2].vID, itemHash[i2].name.Trim().Replace("  ", "").Replace("\r", "").Replace("\n", "").Replace("\t", ""), itemHash[i2].chucDanh, groupName, "");
                             dataGridView2.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
                         }
-                       
+
                     }
                     i++;
                 }
@@ -624,23 +633,23 @@ namespace VimassUHFUploadVideo.Vpass.GiaoDien
                                 HienThiCoPhanTrang(0, itemHash.Value.listPer, itemHash.Key);
                             }
                             goiLayKhuonMat(itemHash.Value.listPer);
-                           /* else
-                            {
-                                for (int i2 = 0; i2 < 100; i2++)
-                                {
+                            /* else
+                             {
+                                 for (int i2 = 0; i2 < 100; i2++)
+                                 {
 
-                                    if (itemHash.Value.listPer[i2].sdt != null && !itemHash.Value.listPer[i2].sdt.Equals(""))
-                                    {
-                                        dataGridView2.Rows.Add(i2 + 1, itemHash.Value.listPer[i2].sdt, itemHash.Value.listPer[i2].name.Trim().Replace("  ", "").Replace("\r", "").Replace("\n", "").Replace("\t", "").Replace("\u0000", ""), itemHash.Value.listPer[i2].chucDanh, itemHash.Key);
-                                        dataGridView2.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-                                    }
-                                    else
-                                    {
-                                        dataGridView2.Rows.Add(i2 + 1, itemHash.Value.listPer[i2].vID, itemHash.Value.listPer[i2].name.Trim().Replace("  ", "").Replace("\r", "").Replace("\n", "").Replace("\t", "").Replace("\u0000", ""), itemHash.Value.listPer[i2].chucDanh, itemHash.Key);
-                                        dataGridView2.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-                                    }
-                                }
-                            }*/
+                                     if (itemHash.Value.listPer[i2].sdt != null && !itemHash.Value.listPer[i2].sdt.Equals(""))
+                                     {
+                                         dataGridView2.Rows.Add(i2 + 1, itemHash.Value.listPer[i2].sdt, itemHash.Value.listPer[i2].name.Trim().Replace("  ", "").Replace("\r", "").Replace("\n", "").Replace("\t", "").Replace("\u0000", ""), itemHash.Value.listPer[i2].chucDanh, itemHash.Key);
+                                         dataGridView2.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                                     }
+                                     else
+                                     {
+                                         dataGridView2.Rows.Add(i2 + 1, itemHash.Value.listPer[i2].vID, itemHash.Value.listPer[i2].name.Trim().Replace("  ", "").Replace("\r", "").Replace("\n", "").Replace("\t", "").Replace("\u0000", ""), itemHash.Value.listPer[i2].chucDanh, itemHash.Key);
+                                         dataGridView2.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                                     }
+                                 }
+                             }*/
                         }
                         else if (itemHash.Value.listGr != null && itemHash.Value.listGr.Count() > 0)
                         {
@@ -653,7 +662,7 @@ namespace VimassUHFUploadVideo.Vpass.GiaoDien
                                 {
                                     if (itemHash2.Key.Equals(objectGoup.groupName))
                                     {
-                                        dataGridView2.Rows.Add(i3, objectGoup.groupName, itemHash2.Value.listPer.Count());
+                                        dataGridView2.Rows.Add(objectGoup.id, i3, objectGoup.groupName, itemHash2.Value.listPer.Count());
                                         dataGridView2.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
                                         i3++;
                                     }
@@ -663,7 +672,7 @@ namespace VimassUHFUploadVideo.Vpass.GiaoDien
                         }
                     }
                 }
-                
+
             }
             catch (Exception e)
             {
@@ -831,20 +840,20 @@ namespace VimassUHFUploadVideo.Vpass.GiaoDien
 
         private void dataGridView2_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
         {
-            if (e.ColumnIndex == dataGridView2.Columns["Column6"].Index && e.RowIndex >= 0)
-            {
-                e.Paint(e.CellBounds, DataGridViewPaintParts.All & ~DataGridViewPaintParts.ContentForeground);
+            /*            if (e.ColumnIndex == dataGridView2.Columns["Column6"].Index && e.RowIndex >= 0)
+                        {
+                            e.Paint(e.CellBounds, DataGridViewPaintParts.All & ~DataGridViewPaintParts.ContentForeground);
 
-                Image myIcon = Properties.Resources.thungrac; // Giả sử đây là icon của bạn
-                                                              // Tính toán vị trí để vẽ icon sao cho nó nằm giữa ô
-                Size imageSize = myIcon.Size;
-                Point iconLocation = new Point(
-                    e.CellBounds.X + (e.CellBounds.Width - imageSize.Width) / 2,
-                    e.CellBounds.Y + (e.CellBounds.Height - imageSize.Height) / 2);
+                            Image myIcon = Properties.Resources.thungrac; // Giả sử đây là icon của bạn
+                                                                          // Tính toán vị trí để vẽ icon sao cho nó nằm giữa ô
+                            Size imageSize = myIcon.Size;
+                            Point iconLocation = new Point(
+                                e.CellBounds.X + (e.CellBounds.Width - imageSize.Width) / 2,
+                                e.CellBounds.Y + (e.CellBounds.Height - imageSize.Height) / 2);
 
-                e.Graphics.DrawImage(myIcon, iconLocation);
-                e.Handled = true;
-            }
+                            e.Graphics.DrawImage(myIcon, iconLocation);
+                            e.Handled = true;
+                        }*/
         }
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -920,7 +929,7 @@ namespace VimassUHFUploadVideo.Vpass.GiaoDien
                     if (MessageBox.Show("Bạn có chắc chắn muốn xóa dòng này không?", "Xác nhận", MessageBoxButtons.YesNo) == DialogResult.Yes)
                     {
                         // Lấy key từ dòng được chọn (giả sử là ở cột 1)
-                        string key = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
+                        string key = dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString();
 
                         // Xóa từ hashListPers
                         if (FunCGeneral.hashNhom.TryGetValue(key, out var value))
@@ -959,11 +968,32 @@ namespace VimassUHFUploadVideo.Vpass.GiaoDien
 
                     }
                 }
+               
 
             }
             catch (Exception ex)
             {
                 Logger.LogServices("dataGridView1_CellContentClick Exception: " + ex.Message);
+            }
+        }
+
+        private void layLaiHamCache(string key)
+        {
+            try
+            {
+                hashNhomCache.Clear();
+                foreach (KeyValuePair<String, ObjectGoup> item in FunCGeneral.hashNhom)
+                {
+                    if (item.Key.Equals(key))
+                    {
+                        hashNhomCache.Add(key, item.Value);
+                    }
+                }
+
+            }
+            catch (Exception ex)
+            {
+
             }
         }
 
@@ -982,7 +1012,7 @@ namespace VimassUHFUploadVideo.Vpass.GiaoDien
                     dataGridView2.Columns["Column4"].Width = (int)(totalWidth * 0.2); // 50% chiều rộng cd
                     dataGridView2.Columns["Column5"].Width = (int)(totalWidth * 0.25); // 50% chiều rộng nh
                     dataGridView2.Columns["Column7"].Width = (int)(totalWidth * 0.1); // 50% chiều rộng nh
-                    dataGridView2.Columns["Column6"].Width = (int)(totalWidth * 0.05); // 50% chiều rộng STT
+                    //dataGridView2.Columns["Column6"].Width = (int)(totalWidth * 0.05); // 50% chiều rộng STT
                 }
                 catch (Exception ex)
                 {
@@ -1050,6 +1080,12 @@ namespace VimassUHFUploadVideo.Vpass.GiaoDien
             {
                 dataGridView1.Rows.Clear();
                 dataGridView1.Columns.Clear();
+                //Thêm cột id
+                DataGridViewColumn columnID1 = new DataGridViewTextBoxColumn();
+                columnID1.HeaderText = "ID";
+                columnID1.Name = "ID";
+                columnID1.Visible = false; // Làm cho cột không hiển thị
+                dataGridView1.Columns.Add(columnID1);
                 dataGridView1.Columns.Add("Column1", "STT");
                 dataGridView1.Columns.Add("Column2", "Tên nhóm");
                 DataGridViewImageColumn imgCol = new DataGridViewImageColumn();
@@ -1059,6 +1095,8 @@ namespace VimassUHFUploadVideo.Vpass.GiaoDien
                     imgCol.ImageLayout = DataGridViewImageCellLayout.Zoom; // Thiết lập layout để icon được zoom và căn giữa
                 }
                 dataGridView1.Columns.Add(imgCol);
+
+
                 //Thiết lập font màu backcolor
                 dataGridView1.DefaultCellStyle.Font = new Font("Segoe UI", 13); // Thay đổi kiểu chữ và cỡ chữ
                 dataGridView1.RowTemplate.Height = 30; // Thay đổi chiều cao của hàng thành 30 pixel
@@ -1073,7 +1111,7 @@ namespace VimassUHFUploadVideo.Vpass.GiaoDien
                     column.HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
 
                 }
-              
+
 
             }
             catch (Exception ex)
@@ -1089,19 +1127,26 @@ namespace VimassUHFUploadVideo.Vpass.GiaoDien
             {
                 dataGridView2.Rows.Clear();
                 dataGridView2.Columns.Clear();
+                //tạo cột ẩn
+                DataGridViewColumn columnID2 = new DataGridViewTextBoxColumn();
+                columnID2.HeaderText = "ID";
+                columnID2.Name = "ID";
+                columnID2.Visible = false; // Làm cho cột không hiển thị
+                dataGridView2.Columns.Add(columnID2);
+
                 dataGridView2.Columns.Add("Column1", "STT");
                 dataGridView2.Columns.Add("Column2", "Số điện thoại/số thẻ");
                 dataGridView2.Columns.Add("Column3", "Họ tên");
                 dataGridView2.Columns.Add("Column4", "Chức danh");
                 dataGridView2.Columns.Add("Column5", "Nhóm");
                 dataGridView2.Columns.Add("Column7", "Khuôn mặt");
-                DataGridViewImageColumn imgColData2 = new DataGridViewImageColumn();
-                {
-                    imgColData2.Name = "Column6";
-                    imgColData2.HeaderText = "";
-                    imgColData2.ImageLayout = DataGridViewImageCellLayout.Zoom; // Thiết lập layout để icon được zoom và căn giữa
-                }
-                dataGridView2.Columns.Add(imgColData2);
+                /*                DataGridViewImageColumn imgColData2 = new DataGridViewImageColumn();
+                                {
+                                    imgColData2.Name = "Column6";
+                                    imgColData2.HeaderText = "";
+                                    imgColData2.ImageLayout = DataGridViewImageCellLayout.Zoom; // Thiết lập layout để icon được zoom và căn giữa
+                                }
+                                dataGridView2.Columns.Add(imgColData2);*/
                 dataGridView2.DefaultCellStyle.Font = new Font("Segoe UI", 13); // Thay đổi kiểu chữ và cỡ chữ
                 dataGridView2.RowTemplate.Height = 30; // Thay đổi chiều cao của hàng thành 30 pixel
                 dataGridView2.BackgroundColor = Color.White;
@@ -1131,16 +1176,24 @@ namespace VimassUHFUploadVideo.Vpass.GiaoDien
             {
                 dataGridView2.Rows.Clear();
                 dataGridView2.Columns.Clear();
+
+                //Thêm cột ID
+                DataGridViewColumn columnID2 = new DataGridViewTextBoxColumn();
+                columnID2.HeaderText = "ID";
+                columnID2.Name = "ID";
+                columnID2.Visible = false; // Làm cho cột không hiển thị
+                dataGridView2.Columns.Add(columnID2);
+
                 dataGridView2.Columns.Add("Column1", "STT");
                 dataGridView2.Columns.Add("Column2", "Nhóm cấp 1");
                 dataGridView2.Columns.Add("Column3", "Số lượng");
-                DataGridViewImageColumn imgColData2 = new DataGridViewImageColumn();
-                {
-                    imgColData2.Name = "Column6";
-                    imgColData2.HeaderText = "";
-                    imgColData2.ImageLayout = DataGridViewImageCellLayout.Zoom; // Thiết lập layout để icon được zoom và căn giữa
-                }
-                dataGridView2.Columns.Add(imgColData2);
+                /*                DataGridViewImageColumn imgColData2 = new DataGridViewImageColumn();
+                                {
+                                    imgColData2.Name = "Column6";
+                                    imgColData2.HeaderText = "";
+                                    imgColData2.ImageLayout = DataGridViewImageCellLayout.Zoom; // Thiết lập layout để icon được zoom và căn giữa
+                                }
+                                dataGridView2.Columns.Add(imgColData2);*/
                 dataGridView2.DefaultCellStyle.Font = new Font("Segoe UI", 13); // Thay đổi kiểu chữ và cỡ chữ
                 dataGridView2.RowTemplate.Height = 30; // Thay đổi chiều cao của hàng thành 30 pixel
                 dataGridView2.BackgroundColor = Color.White;
@@ -1173,7 +1226,7 @@ namespace VimassUHFUploadVideo.Vpass.GiaoDien
                 dataGridView2.Columns["Column1"].Width = (int)(totalWidth * 0.05); // 50% chiều rộng STT
                 dataGridView2.Columns["Column2"].Width = (int)(totalWidth * 0.65); // 30% chiều rộng Tên
                 dataGridView2.Columns["Column3"].Width = (int)(totalWidth * 0.25); // 30% chiều rộng Tên
-                dataGridView2.Columns["Column6"].Width = (int)(totalWidth * 0.05); // 30% chiều rộng Tên
+                //dataGridView2.Columns["Column6"].Width = (int)(totalWidth * 0.05); // 30% chiều rộng Tên
             }
             catch (Exception ex)
             {
@@ -1197,11 +1250,12 @@ namespace VimassUHFUploadVideo.Vpass.GiaoDien
 
 
                 // Truy cập TextBox từ form
-                oLDSGR.textSearch = obj.vID.Replace("v", "").Replace("V", "");
-                oLDSGR.perNum = obj.perNum;
+                oLDSGR.vID = obj.vID.Replace("v", "").Replace("V", "");
+                oLDSGR.textSearch = obj.name;
                 o.data = JsonConvert.SerializeObject(oLDSGR);
 
-                String url = FunCGeneral.ipMayChuDonVi;
+               // String url = FunCGeneral.ipMayChuDonVi;
+                String url = "http://193.169.1.11:58080/autobank/services/vimassTool/dieuPhoi";
                 var json = JsonConvert.SerializeObject(o);
                 String res = Service.SendWebrequest_POST_Method(json, url);
                 Response response = JsonConvert.DeserializeObject<Response>(res);
@@ -1212,7 +1266,7 @@ namespace VimassUHFUploadVideo.Vpass.GiaoDien
                     ResultResponeMini value = JsonConvert.DeserializeObject<ResultResponeMini>(response.result.ToString());
                     String valueTraVe = FunctionGeneral.DecodeBase64String(value.value);
                     ObjectInfoVid arrL = JsonConvert.DeserializeObject<ObjectInfoVid>(valueTraVe);
-                    if (arrL != null&& arrL.faceData!=null && !arrL.faceData.Equals(""))
+                    if (arrL != null && arrL.faceData != null && !arrL.faceData.Equals(""))
                     {
                         kq = true;
                     }
@@ -1227,7 +1281,7 @@ namespace VimassUHFUploadVideo.Vpass.GiaoDien
         }
         public static bool checkMat10602(String vID)
         {
-           
+
             bool kq = false;
             try
             {
@@ -1242,7 +1296,7 @@ namespace VimassUHFUploadVideo.Vpass.GiaoDien
                 oLDSGR.limit = 100;
                 oLDSGR.typeFace = 1;
                 // Truy cập TextBox từ form
-                oLDSGR.textSearch = vID.Replace("v","").Replace("V", "");
+                oLDSGR.textSearch = vID.Replace("v", "").Replace("V", "");
                 o.data = JsonConvert.SerializeObject(oLDSGR);
 
                 String url = FunCGeneral.ipMayChuDonVi;
@@ -1257,13 +1311,13 @@ namespace VimassUHFUploadVideo.Vpass.GiaoDien
                     ResultResponeMini value = JsonConvert.DeserializeObject<ResultResponeMini>(response.result.ToString());
                     String valueTraVe = FunctionGeneral.DecodeBase64String(value.value);
                     var arrL = JsonConvert.DeserializeObject<List<ObjectInfoVid>>(valueTraVe);
-                    if(arrL!= null && arrL.Count > 0 && arrL[0].faceData!=null && !arrL[0].faceData.Equals(""))
+                    if (arrL != null && arrL.Count > 0 && arrL[0].faceData != null && !arrL[0].faceData.Equals(""))
                     {
                         kq = true;
                     }
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 Logger.LogServices("checkMat Exception: " + ex.Message);
 
@@ -1313,6 +1367,33 @@ namespace VimassUHFUploadVideo.Vpass.GiaoDien
             }
 
             return kq;
+        }
+
+        private void dataGridView1_DoubleClick(object sender, EventArgs e)
+        {
+            try
+            {
+                // Kiểm tra xem có hàng nào được chọn hay không
+                if (dataGridView1.SelectedRows.Count > 0)
+                {
+                    Debug.WriteLine("nhảy vào đây");
+                    // Lấy hàng được chọn khi nhấp đúp
+                    DataGridViewRow selectedRow = dataGridView1.SelectedRows[0];
+
+                    // Lấy giá trị của cột thứ 2 (index 1) của hàng được chọn
+                    string key = selectedRow.Cells[2].Value.ToString();
+
+                    // Hiển thị giá trị của cột thứ 2 (hoặc thực hiện các hành động khác với nó)
+                    layLaiHamCache(key);
+                    new Sua().Show();
+                }
+              
+            }
+            catch(Exception ex)
+            {
+                Logger.LogServices("dataGridView1_DoubleClick Exception: " + ex.Message);
+
+            }
         }
 
 

@@ -38,6 +38,7 @@ namespace VimassUHFUploadVideo.Vpass.GiaoDien
                 khoiTaoDiemDinhDanh1();
                 thayDoiKichThuoc1();
                 hienThiDiemDinhDanh();
+                dataGridView1.CurrentCell = null;
             }
             catch(Exception ex) { 
             

@@ -702,10 +702,10 @@ namespace VimassUHFUploadVideo.Vpass.GiaoDien
                             return;
                         }
 
-                        bool result = false;
+                        int result = 0; // Thay đổi ở đây
                         if (listPer[index].vID != null && !listPer[index].vID.Equals(""))
                         {
-                            result = checkMat10603(listPer[index]);
+                            result = checkMat10603(listPer[index]); // Thay đổi ở đây
                         }
 
                         if (!IsDisposed && IsHandleCreated)
@@ -714,7 +714,7 @@ namespace VimassUHFUploadVideo.Vpass.GiaoDien
                             {
                                 if (dataGridView2.Rows.Count > index)
                                 {
-                                    dataGridView2.Rows[index].Cells["Column7"].Value = result ? "v" : "";
+                                    dataGridView2.Rows[index].Cells["Column7"].Value = result != 0 ? result.ToString() : ""; // Cập nhật ở đây
                                 }
                             }));
                         }
@@ -1056,7 +1056,7 @@ namespace VimassUHFUploadVideo.Vpass.GiaoDien
         {
             try
             {
-                if (e.RowIndex >= 0)
+             /*   if (e.RowIndex >= 0)
                 {
                     DataGridViewRow row = dataGridView2.Rows[e.RowIndex];
 
@@ -1067,7 +1067,7 @@ namespace VimassUHFUploadVideo.Vpass.GiaoDien
                     sdtOrVidCache = value.Replace("V", "").Replace("v", "");
 
                     new NhomForm.KhuonMat().Show();
-                }
+                }*/
             }
             catch (Exception ex)
             {
@@ -1235,10 +1235,10 @@ namespace VimassUHFUploadVideo.Vpass.GiaoDien
 
 
         }
-        public static bool checkMat10603(ObjListPer obj)
+        public static int checkMat10603(ObjListPer obj)
         {
 
-            bool kq = false;
+            int kq = 0;
             try
             {
                 ObjectGoiDichVuMini o = new ObjectGoiDichVuMini();
@@ -1254,8 +1254,8 @@ namespace VimassUHFUploadVideo.Vpass.GiaoDien
                 oLDSGR.textSearch = obj.name;
                 o.data = JsonConvert.SerializeObject(oLDSGR);
 
-               // String url = FunCGeneral.ipMayChuDonVi;
-                String url = "http://193.169.1.11:58080/autobank/services/vimassTool/dieuPhoi";
+                String url = FunCGeneral.ipMayChuDonVi;
+               // String url = "http://193.169.1.11:58080/autobank/services/vimassTool/dieuPhoi";
                 var json = JsonConvert.SerializeObject(o);
                 String res = Service.SendWebrequest_POST_Method(json, url);
                 Response response = JsonConvert.DeserializeObject<Response>(res);
@@ -1268,7 +1268,7 @@ namespace VimassUHFUploadVideo.Vpass.GiaoDien
                     ObjectInfoVid arrL = JsonConvert.DeserializeObject<ObjectInfoVid>(valueTraVe);
                     if (arrL != null && arrL.faceData != null && !arrL.faceData.Equals(""))
                     {
-                        kq = true;
+                        kq = arrL.personPosition;
                     }
                 }
             }
@@ -1373,28 +1373,27 @@ namespace VimassUHFUploadVideo.Vpass.GiaoDien
         {
             try
             {
-                // Kiểm tra xem có hàng nào được chọn hay không
-                if (dataGridView1.SelectedRows.Count > 0)
+                if (dataGridView1.CurrentRow.Index != -1)
                 {
-                    Debug.WriteLine("nhảy vào đây");
-                    // Lấy hàng được chọn khi nhấp đúp
-                    DataGridViewRow selectedRow = dataGridView1.SelectedRows[0];
+                    Debug.WriteLine("Sửa nhóm");
+                    // Lấy hàng hiện tại
+                    DataGridViewRow row = dataGridView1.CurrentRow;
 
-                    // Lấy giá trị của cột thứ 2 (index 1) của hàng được chọn
-                    string key = selectedRow.Cells[2].Value.ToString();
+                    // Lấy giá trị từ cột cụ thể, ví dụ cột đầu tiên
+                    string value = row.Cells[2].Value.ToString();
 
-                    // Hiển thị giá trị của cột thứ 2 (hoặc thực hiện các hành động khác với nó)
-                    layLaiHamCache(key);
+                    // Thực hiện hành động với giá trị 'key'
+                    layLaiHamCache(value);
                     new Sua().Show();
                 }
-              
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 Logger.LogServices("dataGridView1_DoubleClick Exception: " + ex.Message);
-
             }
         }
+
+
 
 
         /*  private void dataGridView1_SelectionChanged(object sender, EventArgs e)

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -9,6 +10,9 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using VimassUHFUploadVideo.Vpass.Object;
+using VimassUHFUploadVideo.Ultil;
+using System.Diagnostics;
+using VimassUHFUploadVideo.Vpass.Object.ObjectThietBi;
 
 namespace VimassUHFUploadVideo.Vpass.GiaoDien.NhomForm
 {
@@ -28,18 +32,42 @@ namespace VimassUHFUploadVideo.Vpass.GiaoDien.NhomForm
         {
             try
             {
+                radioButton1.Checked = true;
+                comboBox1.Items.Add("Hiệu trưởng");
+                comboBox1.Items.Add("Hiệu phó");
+                comboBox1.Items.Add("Giáo viên chủ nhiệm");
+                comboBox1.Items.Add("Giáo viên bộ môn");
+                comboBox1.Items.Add("Cán bộ nhân viên");
+                comboBox1.Items.Add("Học sinh");
+                comboBox1.SelectedIndex = 0;
                 khoiTaoDataGrid();
                 thayDoiKichThuoc2();
                 foreach (KeyValuePair<String, ObjectGoup> item in NguoiDung.hashNhomCache)
                 {
-                    textBox7.Text= item.Key;
+                    textBox2.Text= item.Key;
                     HienThiThanhVien(item.Value.listPer, item.Key);
                     goiLayKhuonMat(item.Value.listPer);
                 }
+                NguoiDung.hashNhomCache.First().Value.type = 2;
             }
             catch (Exception ex)
             {
                 Logger.LogServices("Sua Sua_Load: " + ex.Message);
+
+            }
+        }
+        private void hienThiDsNguoi()
+        {
+            try
+            {
+                foreach (KeyValuePair<String, ObjectGoup> item in NguoiDung.hashNhomCache)
+                {
+                    HienThiThanhVien(item.Value.listPer, item.Key);
+                    goiLayKhuonMat(item.Value.listPer);
+                }
+            }
+            catch(Exception ex)
+            {
 
             }
         }
@@ -198,10 +226,10 @@ namespace VimassUHFUploadVideo.Vpass.GiaoDien.NhomForm
                             return;
                         }
 
-                        bool result = false;
+                        int result = 0; // Thay đổi ở đây
                         if (listPer[index].vID != null && !listPer[index].vID.Equals(""))
                         {
-                            result = NguoiDung.checkMat10603(listPer[index]);
+                            result =NguoiDung.checkMat10603(listPer[index]); // Thay đổi ở đây
                         }
 
                         if (!IsDisposed && IsHandleCreated)
@@ -210,7 +238,7 @@ namespace VimassUHFUploadVideo.Vpass.GiaoDien.NhomForm
                             {
                                 if (dataGridView1.Rows.Count > index)
                                 {
-                                    dataGridView1.Rows[index].Cells["Column7"].Value = result ? "v" : "";
+                                    dataGridView1.Rows[index].Cells["Column7"].Value = result != 0 ? result.ToString() : ""; // Cập nhật ở đây
                                 }
                             }));
                         }
@@ -225,10 +253,225 @@ namespace VimassUHFUploadVideo.Vpass.GiaoDien.NhomForm
                     // Các thao tác sau khi tất cả các tasks hoàn thành, nếu cần
                 }, token);
             }
+            catch (Exception e)
+            {
+                // Xử lý ngoại lệ
+            }
+        }
+
+        private void radioButton1_CheckedChanged(object sender, EventArgs e)
+        {
+            textBox1.Text = "";
+            textBox7.Text = "";
+        }
+
+        private void radioButton2_CheckedChanged(object sender, EventArgs e)
+        {
+            textBox7.Text = "V";
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+           
+        }
+        private String layName(String idCheck)
+        {
+            String kq = "";
+            try
+            {
+                if (radioButton1.Checked)
+                {
+                    layThongTinSDTRequest sDTRequest = new layThongTinSDTRequest();
+                    if (textBox7.Text != null && !textBox7.Text.Equals(""))
+                    {
+                        sDTRequest.param = textBox7.Text.Trim();
+                        sDTRequest.pass = "8249539tgsdlka";
+
+                        string url = "http://210.245.8.6:8080/vmNoiBo/services/account/getAvt";
+                        string param = "param" + ";" + sDTRequest.param + ";" + "pass" + ";" + sDTRequest.pass;
+                        string result2 = Service.SendWebrequest_Get_Method(param, url);
+                        ObjectResLayThongTinTuSDT response = JsonConvert.DeserializeObject<ObjectResLayThongTinTuSDT>(result2);
+
+                        if (response != null)
+                        {
+                            kq = response.acc_name;
+                        }
+
+
+                    }
+
+
+                }
+                else
+                {
+                    if (textBox7.Text != null && !textBox7.Text.Equals(""))
+                    {
+                        kq = layThongTinThe(idCheck)[0].personName;
+                    }
+                }
+
+            }
             catch (Exception ex)
             {
-                Logger.LogServices("goiLayKhuonMat Exception: " + ex.Message);
+                Logger.LogServices("layName Exception: " + ex.Message);
+            }
+            return kq;
+        }
+        private List<ObjectResInfoThe> layThongTinThe(string text)
+        {
+            List<ObjectResInfoThe> listInfo = new List<ObjectResInfoThe>();
+            try
+            {
+                ObjectTraThongTinThe objectTraThongTin = new ObjectTraThongTinThe();
+                objectTraThongTin.vID = text;
+                objectTraThongTin.currentTime = FunCGeneral.timeNow();
+                objectTraThongTin.cks = FunctionGeneral.Md5("LJAuGHYaBe8dLy26" + objectTraThongTin.vID + "tenelntvahY04").ToLower();
 
+                string url = "http://210.245.8.7:12318/vimass/services/cardAuthen/traCuuNguoiDungTrenMotThe";
+                var json = JsonConvert.SerializeObject(objectTraThongTin);
+                String res = Service.SendWebrequest_POST_Method(json, url);
+                Response response = JsonConvert.DeserializeObject<Response>(res);
+
+                if (response != null && response.msgCode == 1)
+                {
+                    listInfo = JsonConvert.DeserializeObject<List<ObjectResInfoThe>>(response.result.ToString());
+                }
+            }
+            catch (Exception ex)
+            {
+                Logger.LogServices("layThongTinThe Exception: " + ex.Message);
+            }
+            return listInfo;
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                ObjListPer objListPer = new ObjListPer();
+                if (radioButton1.Checked)
+                {
+                    if (textBox1.Text != null && !textBox1.Text.Equals(""))
+                    {
+                        objListPer.sdt = textBox7.Text;
+                        objListPer.name = textBox1.Text;
+                        objListPer.chucDanh = comboBox1.Text;
+                        objListPer.idThietBi = "";
+                        objListPer.uID = "";
+                        objListPer.vID = "";
+                        objListPer.avatar = "";
+                        objListPer.perNum = 0;
+                        objListPer.type = 1;
+                        NguoiDung.hashNhomCache.First().Value.listPer.Add(objListPer);
+                        hienThiDsNguoi();
+                        textBox1.Text = "";
+                        comboBox1.SelectedIndex = 0;
+                        textBox7.Text = "";
+
+                    }
+                    else
+                    {
+                        MessageBox.Show("Vui lòng điền lại số điện thoại");
+                    }
+                }
+                else if (radioButton2.Checked)
+                {
+                    if (textBox7.Text != null && !textBox7.Text.Equals("") && textBox7.Text.Count() > 6)
+                    {
+                        ObjListPer objListPerThe = new ObjListPer();
+                        objListPerThe.sdt = "";
+                        objListPerThe.name = textBox1.Text;
+                        objListPerThe.chucDanh = comboBox1.Text;
+                        objListPerThe.idThietBi = "";
+                        objListPerThe.uID = layThongTinThe(textBox7.Text.Replace("V", ""))[0].uID;
+                        objListPerThe.vID = textBox7.Text;
+                        objListPerThe.avatar = "";
+                        objListPerThe.perNum = 0;
+                        // objListPerThe.perNum = layThongTinThe(textBox7.Text.Replace("V", ""))[0].personNumber;
+                        objListPerThe.type = 1;
+                        NguoiDung.hashNhomCache.First().Value.listPer.Add(objListPerThe);
+                        hienThiDsNguoi();
+                        textBox1.Text = "";
+                        comboBox1.SelectedIndex = 0;
+                        textBox7.Text = "V";
+
+                    }
+                    else
+                    {
+                        MessageBox.Show("Vui lòng điền lại số điện thoại");
+                    }
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Đã tồn tại số thẻ/số điện thoại");
+                Logger.LogServices("button2_Click Exception: " + ex.Message);
+                Debug.WriteLine(ex.Message);
+            }
+        }
+
+        private void textBox7_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (radioButton1.Checked)
+                {
+                    if (textBox7.Text != null && !textBox7.Text.Equals("") && textBox7.Text.Length > 9)
+                    {
+                        textBox1.Text = layName(textBox7.Text);
+                    }
+
+                }
+                /*else
+                {
+                    if (textBox7.Text != null && !textBox7.Text.Equals("") && textBox7.Text.Length > 6)
+                    {
+                        textBox1.Text = layName(textBox7.Text.Replace("V",""));
+                    }
+
+                }*/
+
+            }
+            catch (Exception ex)
+            {
+                Logger.LogServices("textBox7_TextChanged Exception: " + ex.Message);
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                ObjectGroupRQServer obj = new ObjectGroupRQServer();
+                obj.user = "0966074236";
+                obj.currentTime = FunCGeneral.timeNow();
+                obj.deviceID = 3;
+                obj.mcID = FunCGeneral.mcID;
+                obj.listGr = new List<ObjectGoup>();
+                obj.listGr.Add(NguoiDung.hashNhomCache.First().Value);
+                obj.cks = FunctionGeneral.Md5(obj.user + obj.deviceID + "ZgVCHxqMd$aN11ggg2YHD" + obj.currentTime + obj.mcID).ToLower();
+                String url = "http://210.245.8.7:12318/vimass/services/VUHF/nhomRV";
+                var json = JsonConvert.SerializeObject(obj);
+                String res = Service.SendWebrequest_POST_Method(json, url);
+                Response response = JsonConvert.DeserializeObject<Response>(res);
+
+                if (response != null && response.msgCode == 1)
+                {
+                    MessageBox.Show("Sửa nhóm " + NguoiDung.hashNhomCache.First().Key + " thành công");
+                    NguoiDung.hashNhomCache.Clear();
+                    this.Hide();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                Debug.Write(ex.ToString());
             }
         }
     }

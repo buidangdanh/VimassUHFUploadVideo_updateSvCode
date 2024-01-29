@@ -69,6 +69,7 @@
             this.button1.TabIndex = 51;
             this.button1.Text = "Lưu";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // dataGridView1
             // 
@@ -95,12 +96,12 @@
             // panel4
             // 
             this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel4.Controls.Add(this.textBox7);
             this.panel4.Controls.Add(this.comboBox1);
             this.panel4.Controls.Add(this.button2);
             this.panel4.Controls.Add(this.label3);
             this.panel4.Controls.Add(this.textBox1);
             this.panel4.Controls.Add(this.label2);
-            this.panel4.Controls.Add(this.textBox2);
             this.panel4.Controls.Add(this.radioButton2);
             this.panel4.Controls.Add(this.radioButton1);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -127,6 +128,7 @@
             this.button2.TabIndex = 64;
             this.button2.Text = "Thêm";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // label3
             // 
@@ -145,10 +147,10 @@
             this.textBox1.Margin = new System.Windows.Forms.Padding(4);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
-            this.textBox1.ReadOnly = true;
             this.textBox1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.textBox1.Size = new System.Drawing.Size(352, 33);
             this.textBox1.TabIndex = 62;
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // label2
             // 
@@ -163,13 +165,14 @@
             // textBox2
             // 
             this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
-            this.textBox2.Location = new System.Drawing.Point(297, 50);
+            this.textBox2.Location = new System.Drawing.Point(298, 7);
             this.textBox2.Margin = new System.Windows.Forms.Padding(4);
             this.textBox2.Multiline = true;
             this.textBox2.Name = "textBox2";
             this.textBox2.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.textBox2.Size = new System.Drawing.Size(352, 33);
             this.textBox2.TabIndex = 61;
+            this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
             // radioButton2
             // 
@@ -181,6 +184,7 @@
             this.radioButton2.TabStop = true;
             this.radioButton2.Text = "Số thẻ";
             this.radioButton2.UseVisualStyleBackColor = true;
+            this.radioButton2.CheckedChanged += new System.EventHandler(this.radioButton2_CheckedChanged);
             // 
             // radioButton1
             // 
@@ -192,11 +196,12 @@
             this.radioButton1.TabStop = true;
             this.radioButton1.Text = "Số điện thoại";
             this.radioButton1.UseVisualStyleBackColor = true;
+            this.radioButton1.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
             // 
             // panel3
             // 
-            this.panel3.Controls.Add(this.textBox7);
             this.panel3.Controls.Add(this.label1);
+            this.panel3.Controls.Add(this.textBox2);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel3.Location = new System.Drawing.Point(0, 0);
             this.panel3.Name = "panel3";
@@ -206,13 +211,14 @@
             // textBox7
             // 
             this.textBox7.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
-            this.textBox7.Location = new System.Drawing.Point(298, 7);
+            this.textBox7.Location = new System.Drawing.Point(297, 44);
             this.textBox7.Margin = new System.Windows.Forms.Padding(4);
             this.textBox7.Multiline = true;
             this.textBox7.Name = "textBox7";
             this.textBox7.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.textBox7.Size = new System.Drawing.Size(352, 33);
             this.textBox7.TabIndex = 54;
+            this.textBox7.TextChanged += new System.EventHandler(this.textBox7_TextChanged);
             // 
             // label1
             // 

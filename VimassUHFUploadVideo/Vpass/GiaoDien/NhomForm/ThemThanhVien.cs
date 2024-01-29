@@ -107,7 +107,7 @@ namespace VimassUHFUploadVideo.Vpass.GiaoDien.NhomForm
                         objListPer.avatar = "";
                         objListPer.perNum = 0;
                         objListPer.type = 1;
-                        ThemNhomMoi.hashListPers.Add(objListPer.sdt, objListPer);
+                        ThemNhomMoi.hashListPers.Add(objListPer.sdt+"-"+objListPer.name, objListPer);
                         themVaoBangCache();
                         textBox1.Text = "";
                         comboBox1.SelectedIndex = 0;
@@ -134,11 +134,11 @@ namespace VimassUHFUploadVideo.Vpass.GiaoDien.NhomForm
                         objListPerThe.perNum = 0;
                        // objListPerThe.perNum = layThongTinThe(textBox7.Text.Replace("V", ""))[0].personNumber;
                         objListPerThe.type = 1;
-                        ThemNhomMoi.hashListPers.Add(objListPerThe.vID, objListPerThe);
+                        ThemNhomMoi.hashListPers.Add(objListPerThe.vID + "-" + objListPerThe.name, objListPerThe);
                         themVaoBangCache();
                         textBox1.Text = "";
                         comboBox1.SelectedIndex = 0;
-                        textBox7.Text = "";
+                        textBox7.Text = "V";
 
                     }
                     else
@@ -167,7 +167,7 @@ namespace VimassUHFUploadVideo.Vpass.GiaoDien.NhomForm
                 {
                     foreach (KeyValuePair<String, ObjListPer> item in ThemNhomMoi.hashListPers)
                     {
-                        dataGridView1.Rows.Add(Stt, item.Key, item.Value.name, item.Value.chucDanh);
+                        dataGridView1.Rows.Add(Stt, item.Key.Split('-')[0], item.Value.name, item.Value.chucDanh);
                         dataGridView1.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
                         thayDoiKichThuoc(dataGridView1);
                         Stt++;
@@ -257,7 +257,7 @@ namespace VimassUHFUploadVideo.Vpass.GiaoDien.NhomForm
         {
             try
             {
-              /*  if (radioButton1.Checked)
+                if (radioButton1.Checked)
                 {
                     if (textBox7.Text != null && !textBox7.Text.Equals("") && textBox7.Text.Length > 9)
                     {
@@ -265,7 +265,7 @@ namespace VimassUHFUploadVideo.Vpass.GiaoDien.NhomForm
                     }
 
                 }
-                else
+                /*else
                 {
                     if (textBox7.Text != null && !textBox7.Text.Equals("") && textBox7.Text.Length > 6)
                     {
@@ -297,7 +297,6 @@ namespace VimassUHFUploadVideo.Vpass.GiaoDien.NhomForm
 
         private void radioButton1_CheckedChanged(object sender, EventArgs e)
         {
-            textBox7.Text = "";
             textBox1.Text = "";
             textBox7.Text = "";
         }
@@ -353,6 +352,11 @@ namespace VimassUHFUploadVideo.Vpass.GiaoDien.NhomForm
                     themVaoBangCache();
                 }
             }
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

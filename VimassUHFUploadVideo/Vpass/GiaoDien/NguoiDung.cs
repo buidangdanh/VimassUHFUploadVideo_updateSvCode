@@ -977,8 +977,9 @@ namespace VimassUHFUploadVideo.Vpass.GiaoDien
             }
         }
 
-        private void layLaiHamCache(string key)
+        private int layLaiHamCache(string key)
         {
+            int kq = 0;
             try
             {
                 hashNhomCache.Clear();
@@ -989,12 +990,22 @@ namespace VimassUHFUploadVideo.Vpass.GiaoDien
                         hashNhomCache.Add(key, item.Value);
                     }
                 }
+                if (NguoiDung.hashNhomCache.First().Value.groupLevel == 1)
+                {
+                    kq = 1;
+                }
+                else
+                {
+                    kq= 2;
+                }
 
             }
             catch (Exception ex)
             {
+                Logger.LogServices("layLaiHamCache Exception: " + ex.Message);
 
             }
+            return kq;
         }
 
         private void thayDoiKichThuoc2()
@@ -1383,8 +1394,14 @@ namespace VimassUHFUploadVideo.Vpass.GiaoDien
                     string value = row.Cells[2].Value.ToString();
 
                     // Thực hiện hành động với giá trị 'key'
-                    layLaiHamCache(value);
-                    new Sua().Show();
+                    if (layLaiHamCache(value) == 1)
+                    {
+                        new Sua().Show();
+                    }else if(layLaiHamCache(value) == 2)
+                    {
+                        new SuaNhomCap2().Show();
+                    }
+                 
                 }
             }
             catch (Exception ex)

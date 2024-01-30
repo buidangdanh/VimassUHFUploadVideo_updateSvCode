@@ -31,6 +31,7 @@ namespace VimassUHFUploadVideo.Vpass.GiaoDien.NhomForm
         {
             try
             {
+                this.Text = "Thêm thành viên";
 
                 radioButton1.Checked = true;
                 //Thiet lap cac thuoc tinh cua trang

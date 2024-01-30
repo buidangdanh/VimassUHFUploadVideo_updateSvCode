@@ -36,6 +36,7 @@ namespace VimassUHFUploadVideo.Vpass.GiaoDien
 
         private void ThemNhomMoi_Load(object sender, EventArgs e)
         {
+            this.Text = "Tạo nhóm";
             radioButton1.Text = "Nhóm cấp 1";
             radioButton2.Text = "Nhóm cấp 2";
             button1.Text = "Thêm thành viên";
@@ -45,13 +46,14 @@ namespace VimassUHFUploadVideo.Vpass.GiaoDien
 
         private void radioButton1_CheckedChanged(object sender, EventArgs e)
         {
-
+            objectGoup.groupLevel = 1;
             button1.Text = "Thêm thành viên";
         }
 
         private void radioButton2_CheckedChanged(object sender, EventArgs e)
         {
             button1.Text = "Thêm nhóm";
+            objectGoup.groupLevel = 2;
         }
 
         private void textBox7_TextChanged(object sender, EventArgs e)

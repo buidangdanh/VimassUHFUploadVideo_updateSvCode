@@ -28,6 +28,7 @@ namespace VimassUHFUploadVideo.Vpass.GiaoDien.NhomForm
         {
             try
             {
+                this.Text = "Thêm nhóm cấp 1";
                 dataGridView1.Columns.Add("Column1", "STT");
                 dataGridView1.Columns.Add("Column2", "Nhóm cấp 1");
                 DataGridViewImageColumn column3 = new DataGridViewImageColumn();
@@ -212,6 +213,11 @@ namespace VimassUHFUploadVideo.Vpass.GiaoDien.NhomForm
             {
                 Logger.LogServices("button1_Click Exception: " + ex.Message);
             }
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

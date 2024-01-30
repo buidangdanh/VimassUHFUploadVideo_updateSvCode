@@ -148,7 +148,6 @@
             this.textBox1.Margin = new System.Windows.Forms.Padding(4);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
-            this.textBox1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.textBox1.Size = new System.Drawing.Size(352, 33);
             this.textBox1.TabIndex = 53;
             // 
@@ -169,7 +168,6 @@
             this.textBox7.Margin = new System.Windows.Forms.Padding(4);
             this.textBox7.Multiline = true;
             this.textBox7.Name = "textBox7";
-            this.textBox7.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.textBox7.Size = new System.Drawing.Size(352, 33);
             this.textBox7.TabIndex = 52;
             this.textBox7.TextChanged += new System.EventHandler(this.textBox7_TextChanged);

@@ -32,6 +32,7 @@ namespace VimassUHFUploadVideo.Vpass.GiaoDien.NhomForm
         {
             try
             {
+                this.Text = "Sửa nhóm";
                 radioButton1.Checked = true;
                 comboBox1.Items.Add("Hiệu trưởng");
                 comboBox1.Items.Add("Hiệu phó");

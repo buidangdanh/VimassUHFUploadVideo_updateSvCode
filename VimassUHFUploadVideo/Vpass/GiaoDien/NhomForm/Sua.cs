@@ -176,18 +176,22 @@ namespace VimassUHFUploadVideo.Vpass.GiaoDien.NhomForm
                 int i = 1;
                 for (int i2 = 0; i2 < itemHash.Count(); i2++)
                 {
+                    if (itemHash[i2].type != 3)
+                    {
+                        if (itemHash[i2].sdt != null && !itemHash[i2].sdt.Equals(""))
+                        {
+                            dataGridView1.Rows.Add(itemHash[i2].id,i, itemHash[i2].sdt, itemHash[i2].name.Trim().Replace("  ", "").Replace("\r", "").Replace("\n", "").Replace("\t", "").Replace("\u0000", ""), itemHash[i2].chucDanh, groupName, "");
+                            dataGridView1.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                        }
+                        else
+                        {
+                            dataGridView1.Rows.Add(itemHash[i2].id,i, itemHash[i2].vID, itemHash[i2].name.Trim().Replace("  ", "").Replace("\r", "").Replace("\n", "").Replace("\t", "").Replace("\u0000", ""), itemHash[i2].chucDanh, groupName, "");
+                            dataGridView1.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                        }
+                        i++;
 
-                    if (itemHash[i2].sdt != null && !itemHash[i2].sdt.Equals(""))
-                    {
-                        dataGridView1.Rows.Add(itemHash[i2].id, i, itemHash[i2].sdt, itemHash[i2].name.Trim().Replace("  ", "").Replace("\r", "").Replace("\n", "").Replace("\t", "").Replace("\u0000", ""), itemHash[i2].chucDanh, groupName, "");
-                        dataGridView1.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
                     }
-                    else
-                    {
-                        dataGridView1.Rows.Add(itemHash[i2].id, i, itemHash[i2].vID, itemHash[i2].name.Trim().Replace("  ", "").Replace("\r", "").Replace("\n", "").Replace("\t", "").Replace("\u0000", ""), itemHash[i2].chucDanh, groupName, "");
-                        dataGridView1.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-                    }
-                    i++;
+                  
                 }
             }
             catch (Exception ex)
@@ -358,6 +362,7 @@ namespace VimassUHFUploadVideo.Vpass.GiaoDien.NhomForm
                 {
                     if (textBox1.Text != null && !textBox1.Text.Equals(""))
                     {
+                        
                         objListPer.sdt = textBox7.Text;
                         objListPer.name = textBox1.Text;
                         objListPer.chucDanh = comboBox1.Text;
@@ -367,6 +372,8 @@ namespace VimassUHFUploadVideo.Vpass.GiaoDien.NhomForm
                         objListPer.avatar = "";
                         objListPer.perNum = 0;
                         objListPer.type = 1;
+
+                        objListPer.id = objListPer.sdt + objListPer.perNum+ NguoiDung.hashNhomCache.First().Value.id;
                         NguoiDung.hashNhomCache.First().Value.listPer.Add(objListPer);
                         hienThiDsNguoi();
                         textBox1.Text = "";
@@ -394,6 +401,8 @@ namespace VimassUHFUploadVideo.Vpass.GiaoDien.NhomForm
                         objListPerThe.perNum = 0;
                         // objListPerThe.perNum = layThongTinThe(textBox7.Text.Replace("V", ""))[0].personNumber;
                         objListPerThe.type = 1;
+                        objListPerThe.id = FunCGeneral.timeNow().ToString() + FunCGeneral.GenerateRandomCharacters(3)+ NguoiDung.hashNhomCache.First().Value.id;
+
                         NguoiDung.hashNhomCache.First().Value.listPer.Add(objListPerThe);
                         hienThiDsNguoi();
                         textBox1.Text = "";
@@ -472,6 +481,60 @@ namespace VimassUHFUploadVideo.Vpass.GiaoDien.NhomForm
             {
                 MessageBox.Show(ex.Message);
                 Debug.Write(ex.ToString());
+            }
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                if (e.ColumnIndex == dataGridView1.Columns["Column6"].Index && e.RowIndex >= 0)
+                {
+                    if (MessageBox.Show("Bạn có chắc chắn muốn xóa dòng này không?", "Xác nhận", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                    {
+                        // Lấy key từ dòng được chọn (giả sử là ở cột 1)
+                        if (dataGridView1.Rows[e.RowIndex].Cells[0].Value != null)
+                        {
+                            string key = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString();
+
+                            // Xóa từ hashListPers
+
+                            Debug.WriteLine(key);
+                            // Xóa dòng từ DataGridView
+                   
+
+                            // Cập nhật lại STT sau khi xóa
+                            thayDoiType(key);
+                            HienThiThanhVien(NguoiDung.hashNhomCache.First().Value.listPer, NguoiDung.hashNhomCache.First().Key);
+                            dataGridView1.Rows.RemoveAt(e.RowIndex);
+                        }
+                     
+                     
+
+                    }
+                }
+
+
+            }
+            catch (Exception ex)
+            {
+                Logger.LogServices("dataGridView1_CellContentClick Exception: " + ex.Message);
+            }
+        }
+        private void thayDoiType(String id)
+        {
+            try
+            {
+                foreach (ObjListPer obj in NguoiDung.hashNhomCache.First().Value.listPer)
+                {
+                    if (id!=null&&obj.id.Equals(id)) {
+                        obj.type = 3;
+                    }
+                }
+            }catch(Exception ex)
+            {
+                Logger.LogServices("thayDoiType Exception: " + ex.Message);
+
             }
         }
     }

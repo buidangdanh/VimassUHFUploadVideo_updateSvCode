@@ -119,6 +119,19 @@ namespace VimassUHFUploadVideo.Vpass.Object
             }
             return soTrang;
         }
+        public static string GenerateRandomCharacters(int length)
+        {
+            Random random = new Random();
+            string characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+            string result = "";
+
+            for (int i = 0; i < length; i++)
+            {
+                result += characters[random.Next(characters.Length)];
+            }
+
+            return result;
+        }
 
 
     }

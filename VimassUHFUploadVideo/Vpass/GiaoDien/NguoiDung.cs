@@ -968,7 +968,7 @@ namespace VimassUHFUploadVideo.Vpass.GiaoDien
 
                     }
                 }
-               
+
 
             }
             catch (Exception ex)
@@ -996,7 +996,7 @@ namespace VimassUHFUploadVideo.Vpass.GiaoDien
                 }
                 else
                 {
-                    kq= 2;
+                    kq = 2;
                 }
 
             }
@@ -1067,18 +1067,18 @@ namespace VimassUHFUploadVideo.Vpass.GiaoDien
         {
             try
             {
-             /*   if (e.RowIndex >= 0)
-                {
-                    DataGridViewRow row = dataGridView2.Rows[e.RowIndex];
+                /*   if (e.RowIndex >= 0)
+                   {
+                       DataGridViewRow row = dataGridView2.Rows[e.RowIndex];
 
-                    // Thay thế 'ColumnName' với tên thực tế của cột bạn muốn lấy giá trị
-                    string value = row.Cells["Column2"].Value.ToString();
+                       // Thay thế 'ColumnName' với tên thực tế của cột bạn muốn lấy giá trị
+                       string value = row.Cells["Column2"].Value.ToString();
 
-                    // Hiển thị giá trị hoặc làm gì đó với nó
-                    sdtOrVidCache = value.Replace("V", "").Replace("v", "");
+                       // Hiển thị giá trị hoặc làm gì đó với nó
+                       sdtOrVidCache = value.Replace("V", "").Replace("v", "");
 
-                    new NhomForm.KhuonMat().Show();
-                }*/
+                       new NhomForm.KhuonMat().Show();
+                   }*/
             }
             catch (Exception ex)
             {
@@ -1266,7 +1266,7 @@ namespace VimassUHFUploadVideo.Vpass.GiaoDien
                 o.data = JsonConvert.SerializeObject(oLDSGR);
 
                 String url = FunCGeneral.ipMayChuDonVi;
-               // String url = "http://193.169.1.11:58080/autobank/services/vimassTool/dieuPhoi";
+                // String url = "http://193.169.1.11:58080/autobank/services/vimassTool/dieuPhoi";
                 var json = JsonConvert.SerializeObject(o);
                 String res = Service.SendWebrequest_POST_Method(json, url);
                 Response response = JsonConvert.DeserializeObject<Response>(res);
@@ -1396,18 +1396,35 @@ namespace VimassUHFUploadVideo.Vpass.GiaoDien
                     // Thực hiện hành động với giá trị 'key'
                     if (layLaiHamCache(value) == 1)
                     {
+
                         new Sua().Show();
-                    }else if(layLaiHamCache(value) == 2)
-                    {
-                        new SuaNhomCap2().Show();
+
                     }
-                 
+                    else if (layLaiHamCache(value) == 2)
+                    {
+
+                        new SuaNhomCap2().Show();
+
+                    }
+
                 }
             }
             catch (Exception ex)
             {
                 Logger.LogServices("dataGridView1_DoubleClick Exception: " + ex.Message);
             }
+        }
+        private bool IsFormOpen(System.Type formType)
+        {
+            foreach (Form openForm in Application.OpenForms)
+            {
+                if (openForm.GetType() == formType)
+                {
+                    openForm.Activate();
+                    return true;
+                }
+            }
+            return false;
         }
 
 

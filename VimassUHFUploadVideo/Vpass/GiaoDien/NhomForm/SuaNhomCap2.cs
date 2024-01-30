@@ -139,8 +139,8 @@ namespace VimassUHFUploadVideo.Vpass.GiaoDien.NhomForm
                     int totalWidth = dataGridView1.Width - SystemInformation.VerticalScrollBarWidth;
 
                     // Thiết lập tỉ lệ cho từng cột
-                    dataGridView1.Columns["Column1"].Width = (int)(totalWidth * 0.2); // 50% chiều rộng STT
-                    dataGridView1.Columns["Column2"].Width = (int)(totalWidth * 0.7); // 50% chiều rộng sdt
+                    dataGridView1.Columns["Column1"].Width = (int)(totalWidth * 0.1); // 50% chiều rộng STT
+                    dataGridView1.Columns["Column2"].Width = (int)(totalWidth * 0.8); // 50% chiều rộng sdt
                     dataGridView1.Columns["Column6"].Width = (int)(totalWidth * 0.1); // 50% chiều rộng sdt
                 }
                 catch (Exception ex)
@@ -164,7 +164,7 @@ namespace VimassUHFUploadVideo.Vpass.GiaoDien.NhomForm
                 {
                     if (comboBox1.Text.Equals(item.Key))
                     {
-                        item.Value.type = 1;
+                        item.Value.type = 0;
                         NguoiDung.hashNhomCache.First().Value.listGr.Add(item.Value);
                     }
                 }
@@ -273,7 +273,7 @@ namespace VimassUHFUploadVideo.Vpass.GiaoDien.NhomForm
 
 
                             // Cập nhật lại STT sau khi xóa
-                            thayDoiType(key);
+                            XoaKhoiListGroup(key);
                             hienThiNhomCap1();
                             dataGridView1.Rows.RemoveAt(e.RowIndex);
                         }
@@ -298,13 +298,44 @@ namespace VimassUHFUploadVideo.Vpass.GiaoDien.NhomForm
                 {
                     if (id != null && obj.id.Equals(id))
                     {
-                        obj.type = 3;
+                        obj.type = 0;
                     }
                 }
             }
             catch (Exception ex)
             {
                 Logger.LogServices("thayDoiType Exception: " + ex.Message);
+
+            }
+        }
+        private void XoaKhoiListGroup(String id)
+        {
+            try
+            {
+                foreach (ObjectGoup obj in NguoiDung.hashNhomCache.First().Value.listGr)
+                {
+                    if (id != null && obj.id.Equals(id))
+                    {
+                        NguoiDung.hashNhomCache.First().Value.listGr.Remove(obj);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Logger.LogServices("thayDoiType Exception: " + ex.Message);
+
+            }
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                NguoiDung.hashNhomCache.First().Value.groupName = textBox2.Text;
+            }
+            catch (Exception ex)
+            {
+                Logger.LogServices("textBox2_TextChanged Exception: " + ex.Message);
 
             }
         }

@@ -543,19 +543,21 @@ namespace VimassUHFUploadVideo.Vpass.GiaoDien.NhomForm
                     {
                         if (objList.vID != null && !objList.vID.Equals(""))
                         {
+                            radioButton2.Checked = true;
                             textBox3.Text = objList.id;
                             textBox7.Text = objList.vID;
                             textBox1.Text = objList.name;
                             comboBox1.Text = objList.chucDanh;
-                            radioButton2.Checked = true;
+                           
                         }
                         else
                         {
+                            radioButton1.Checked = true;
                             textBox3.Text = objList.id;
                             textBox7.Text = objList.sdt;
                             textBox1.Text = objList.name;
                             comboBox1.Text = objList.chucDanh;
-                            radioButton1.Checked = true;
+                            
 
                         }
                     }
@@ -659,6 +661,11 @@ namespace VimassUHFUploadVideo.Vpass.GiaoDien.NhomForm
                 Logger.LogServices("dataGridView1_DoubleClick Exception: " + ex.Message);
 
             }
+
+        }
+
+        private void dataGridView1_DpiChangedAfterParent(object sender, EventArgs e)
+        {
 
         }
     }

@@ -19,6 +19,7 @@ using com.sun.org.apache.bcel.@internal.generic;
 using System.Threading;
 using VimassUHFUploadVideo.Vpass.Object.ObjectNguoiDung;
 using VimassUHFUploadVideo.Vpass.GiaoDien.NhomForm;
+using System.Globalization;
 
 namespace VimassUHFUploadVideo.Vpass.GiaoDien
 {
@@ -1262,7 +1263,7 @@ namespace VimassUHFUploadVideo.Vpass.GiaoDien
 
                 // Truy cập TextBox từ form
                 oLDSGR.vID = obj.vID.Replace("v", "").Replace("V", "");
-                oLDSGR.textSearch = obj.name;
+                oLDSGR.textSearch = RemoveDiacritics( obj.name);
                 o.data = JsonConvert.SerializeObject(oLDSGR);
 
                 String url = FunCGeneral.ipMayChuDonVi;
@@ -1277,7 +1278,7 @@ namespace VimassUHFUploadVideo.Vpass.GiaoDien
                     ResultResponeMini value = JsonConvert.DeserializeObject<ResultResponeMini>(response.result.ToString());
                     String valueTraVe = FunctionGeneral.DecodeBase64String(value.value);
                     ObjectInfoVid arrL = JsonConvert.DeserializeObject<ObjectInfoVid>(valueTraVe);
-                    if (arrL != null && arrL.faceData != null && !arrL.faceData.Equals(""))
+                    if (arrL != null && arrL.faceData != null && !arrL.faceData.Equals("") && arrL.faceData.Length>5)
                     {
                         kq = arrL.personPosition;
                     }
@@ -1289,6 +1290,22 @@ namespace VimassUHFUploadVideo.Vpass.GiaoDien
 
             }
             return kq;
+        }
+        public static string RemoveDiacritics(string text)
+        {
+            var normalizedString = text.Normalize(NormalizationForm.FormD);
+            var stringBuilder = new StringBuilder();
+
+            foreach (var c in normalizedString)
+            {
+                var unicodeCategory = CharUnicodeInfo.GetUnicodeCategory(c);
+                if (unicodeCategory != UnicodeCategory.NonSpacingMark)
+                {
+                    stringBuilder.Append(c);
+                }
+            }
+
+            return stringBuilder.ToString().Normalize(NormalizationForm.FormC);
         }
         public static bool checkMat10602(String vID)
         {

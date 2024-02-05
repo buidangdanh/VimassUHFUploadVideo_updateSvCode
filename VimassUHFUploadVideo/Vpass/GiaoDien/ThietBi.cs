@@ -316,7 +316,7 @@ namespace VimassUHFUploadVideo.Vpass.GiaoDien
             }
         }
 
-        private void capNhatThietBiTuServer()
+        public static void capNhatThietBiTuServer()
         {
             try
             {

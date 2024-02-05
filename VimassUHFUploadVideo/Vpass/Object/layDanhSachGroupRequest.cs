@@ -9,9 +9,6 @@ namespace VimassUHFUploadVideo.Vpass.Object
     public class layDanhSachGroupRequest
     {
         public String mcID { get; set; }
-        public int offset { get; set; }
-        public int limit { get; set; }
 
-        public String textSearch { get; set; }
     }
 }

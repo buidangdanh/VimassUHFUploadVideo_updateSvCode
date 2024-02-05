@@ -229,9 +229,7 @@ namespace VimassUHFUploadVideo.Vpass.GiaoDien
 
                 layDanhSachGroupRequest oLDSGR = new layDanhSachGroupRequest();
                 oLDSGR.mcID = FunCGeneral.mcID;
-                oLDSGR.offset = 0;
-                oLDSGR.limit = 100;
-                oLDSGR.textSearch = "";
+
 
                 o.data = JsonConvert.SerializeObject(oLDSGR);
 
@@ -293,7 +291,7 @@ namespace VimassUHFUploadVideo.Vpass.GiaoDien
                 FunCGeneral.hashNhom.Clear();
                 khoiTaoDataGridView1();
                 thayDoiKichThuoc1();
-                listGroup = layNhomTuSerVer();
+                listGroup = layNhomLocal();
 
                 for (int i = 0; i < listGroup.Count(); i++)
                 {

@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using VimassUHFUploadVideo.Vpass.Object;
+using VimassUHFUploadVideo.Vpass.Object.ObjectThietBi;
 
 namespace VimassUHFUploadVideo.Vpass.GiaoDien
 {
@@ -27,6 +28,10 @@ namespace VimassUHFUploadVideo.Vpass.GiaoDien
         {
             try
             {
+                this.comboBox2.Items.Add("V1");
+                this.comboBox2.Items.Add("V2");
+                comboBox2.SelectedIndex = 0;
+                comboBox2.Enabled = true;
                 foreach (KeyValuePair<String, ObjecthttpMayChuDonVi> itemHash in FunCGeneral.hashMCID)
                 {
                     this.comboBox1.Items.Add(itemHash.Key);
@@ -44,6 +49,9 @@ namespace VimassUHFUploadVideo.Vpass.GiaoDien
                 {
                     labelDangNhap.Text = FunCGeneral.lGinKQ.hoTen;
                 }
+                ThietBi.capNhatThietBiTuServer();
+                
+
             }
             catch (Exception ex)
             {
@@ -296,6 +304,52 @@ namespace VimassUHFUploadVideo.Vpass.GiaoDien
                     clickedItem.BackColor = Color.LightBlue; // Chọn màu bạn thích
                 }
 
+            }
+            catch(Exception ex)
+            {
+
+            }
+        }
+
+        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if(comboBox2.Text!=null && !comboBox2.Text.Equals(""))
+                {
+                    if(comboBox2.Text.Equals("V1"))
+                    {
+                        foreach (KeyValuePair<String, Device> item in ThietBi.hashDevice)
+                        {
+                            if (item.Value.typeDevice.Equals(1) || item.Value.typeDevice.Equals(2))
+                            {
+
+                                if (item.Value.stt == 1)
+                                {
+                                    FunCGeneral.ipMayChuDonVi = "http://" + item.Value.ip + ":58080/autobank/services/vimassTool/dieuPhoi";
+                                }
+
+
+                            }
+                        }
+                    }
+                    else
+                    {
+                        foreach (KeyValuePair<String, Device> item in ThietBi.hashDevice)
+                        {
+                            if (item.Value.typeDevice.Equals(1) || item.Value.typeDevice.Equals(2))
+                            {
+
+                                if (item.Value.stt == 2)
+                                {
+                                    FunCGeneral.ipMayChuDonVi = "http://" + item.Value.ip + ":58080/autobank/services/vimassTool/dieuPhoi";
+                                }
+
+                            }
+                        }
+
+                    }
+                }
             }
             catch(Exception ex)
             {

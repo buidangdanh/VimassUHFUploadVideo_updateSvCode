@@ -117,6 +117,7 @@ namespace VimassUHFUploadVideo.Vpass
             this.richTextBox2.Size = new System.Drawing.Size(245, 32);
             this.richTextBox2.TabIndex = 15;
             this.richTextBox2.Text = "";
+
             this.richTextBox2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.richTextBox2_KeyPress);
             // 
             // richTextBox3
@@ -127,6 +128,7 @@ namespace VimassUHFUploadVideo.Vpass
             this.richTextBox3.Size = new System.Drawing.Size(162, 32);
             this.richTextBox3.TabIndex = 16;
             this.richTextBox3.Text = "";
+
             this.richTextBox3.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.richTextBox3_KeyPress);
             // 
             // richTextBox4
@@ -137,6 +139,7 @@ namespace VimassUHFUploadVideo.Vpass
             this.richTextBox4.Size = new System.Drawing.Size(77, 32);
             this.richTextBox4.TabIndex = 17;
             this.richTextBox4.Text = "";
+
             this.richTextBox4.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.richTextBox4_KeyPress);
             // 
             // checkBox1

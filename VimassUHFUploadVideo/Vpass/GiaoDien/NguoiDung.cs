@@ -425,12 +425,12 @@ namespace VimassUHFUploadVideo.Vpass.GiaoDien
 
                     if (itemHash[i2].sdt != null && !itemHash[i2].sdt.Equals(""))
                     {
-                        dataGridView2.Rows.Add(itemHash[i2].id, i, itemHash[i2].sdt, itemHash[i2].name.Trim().Replace("  ", "").Replace("\r", "").Replace("\n", "").Replace("\t", "").Replace("\u0000", ""), itemHash[i2].chucDanh, groupName, "");
+                        dataGridView2.Rows.Add(itemHash[i2].id, i, itemHash[i2].sdt, itemHash[i2].name.Trim().Replace("  ", "").Replace("\r", "").Replace("\n", "").Replace("\t", "").Replace("\u0000", ""),"", itemHash[i2].chucDanh, groupName);
                         dataGridView2.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
                     }
                     else
                     {
-                        dataGridView2.Rows.Add(itemHash[i2].id, i, itemHash[i2].vID, itemHash[i2].name.Trim().Replace("  ", "").Replace("\r", "").Replace("\n", "").Replace("\t", "").Replace("\u0000", ""), itemHash[i2].chucDanh, groupName, "");
+                        dataGridView2.Rows.Add(itemHash[i2].id, i, itemHash[i2].vID, itemHash[i2].name.Trim().Replace("  ", "").Replace("\r", "").Replace("\n", "").Replace("\t", "").Replace("\u0000", ""),"", itemHash[i2].chucDanh, groupName);
                         dataGridView2.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
                     }
                     i++;
@@ -632,6 +632,7 @@ namespace VimassUHFUploadVideo.Vpass.GiaoDien
                                 arr = itemHash.Value.listPer;
                                 //themPhanTrangVaoPanel(itemHash.Value.listPer.Count());
                                 HienThiCoPhanTrang(0, itemHash.Value.listPer, itemHash.Key);
+                                //dataGridView1.Sort(dataGridView1.Columns["Column2"], ListSortDirection.Ascending);
                             }
                             goiLayKhuonMat(itemHash.Value.listPer);
                             /* else
@@ -1149,9 +1150,10 @@ namespace VimassUHFUploadVideo.Vpass.GiaoDien
                 dataGridView2.Columns.Add("Column1", "STT");
                 dataGridView2.Columns.Add("Column2", "Số điện thoại/số thẻ");
                 dataGridView2.Columns.Add("Column3", "Họ tên");
+                dataGridView2.Columns.Add("Column7", "Khuôn mặt");
                 dataGridView2.Columns.Add("Column4", "Chức danh");
                 dataGridView2.Columns.Add("Column5", "Nhóm");
-                dataGridView2.Columns.Add("Column7", "Khuôn mặt");
+              
                 /*                DataGridViewImageColumn imgColData2 = new DataGridViewImageColumn();
                                 {
                                     imgColData2.Name = "Column6";

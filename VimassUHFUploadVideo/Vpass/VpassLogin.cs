@@ -191,6 +191,7 @@ namespace VimassUHFUploadVideo.Vpass
             // Cập nhật hiển thị của RichTextBox
             richTextBox2.Text = new string('*', actualTextMatKhauSDT.Length);
             richTextBox2.Select(richTextBox2.Text.Length, 0); // Di chuyển con trỏ đến cuối
+            checkBox1.Checked = false;
         }
 
         private void richTextBox3_KeyPress(object sender, KeyPressEventArgs e)
@@ -212,6 +213,7 @@ namespace VimassUHFUploadVideo.Vpass
             // Cập nhật hiển thị của RichTextBox
             richTextBox3.Text = new string('*', actualTextMatKhauThe.Length);
             richTextBox3.Select(richTextBox3.Text.Length, 0); // Di chuyển con trỏ đến cuối
+            checkBox1.Checked = false;
 
         }
 
@@ -234,7 +236,7 @@ namespace VimassUHFUploadVideo.Vpass
             // Cập nhật hiển thị của RichTextBox
             richTextBox4.Text = new string('*', actualTextCVV.Length);
             richTextBox4.Select(richTextBox4.Text.Length, 0); // Di chuyển con trỏ đến cuối
-
+            checkBox1.Checked = false;
         }
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
@@ -253,5 +255,7 @@ namespace VimassUHFUploadVideo.Vpass
             }
 
         }
+
+        
     }
 }

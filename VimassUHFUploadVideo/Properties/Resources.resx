@@ -118,17 +118,17 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="capnhat" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\capnhat.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Danhbiii" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Danhbiii.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Group 1696" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Group 1696.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Group 1505" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Group 1505.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Group 1696" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Group 1696.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Group 1650" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Group 1650.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="thungrac" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\thungrac.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="them" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\them.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -136,13 +136,16 @@
   <data name="Vector" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Vector.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="thungrac" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\thungrac.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Group 1650" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Group 1650.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="capnhat" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\capnhat.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="heThong" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\heThong.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Danhbiii" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Danhbiii.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="DangXuat" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\DangXuat.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

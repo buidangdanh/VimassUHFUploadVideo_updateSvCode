@@ -818,7 +818,7 @@ namespace VimassUHFUploadVideo.Vpass.GiaoDien
 
         private void dataGridView1_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
         {
-            if (e.ColumnIndex == dataGridView1.Columns["Column3"].Index && e.RowIndex >= 0)
+       /*     if (e.ColumnIndex == dataGridView1.Columns["Column3"].Index && e.RowIndex >= 0)
             {
 
                 e.Paint(e.CellBounds, DataGridViewPaintParts.All & ~DataGridViewPaintParts.ContentForeground);
@@ -832,7 +832,7 @@ namespace VimassUHFUploadVideo.Vpass.GiaoDien
 
                 e.Graphics.DrawImage(myIcon, iconLocation);
                 e.Handled = true;
-            }
+            }*/
         }
 
 
@@ -924,7 +924,7 @@ namespace VimassUHFUploadVideo.Vpass.GiaoDien
         {
             try
             {
-                if (e.ColumnIndex == dataGridView1.Columns["Column3"].Index && e.RowIndex >= 0)
+             /*   if (e.ColumnIndex == dataGridView1.Columns["Column3"].Index && e.RowIndex >= 0)
                 {
                     if (MessageBox.Show("Bạn có chắc chắn muốn xóa dòng này không?", "Xác nhận", MessageBoxButtons.YesNo) == DialogResult.Yes)
                     {
@@ -967,7 +967,7 @@ namespace VimassUHFUploadVideo.Vpass.GiaoDien
                         // Cập nhật lại STT sau khi xóa
 
                     }
-                }
+                }*/
 
 
             }
@@ -1048,8 +1048,8 @@ namespace VimassUHFUploadVideo.Vpass.GiaoDien
 
                     // Thiết lập tỉ lệ cho từng cột
                     dataGridView1.Columns["Column1"].Width = (int)(totalWidth * 0.3); // 50% chiều rộng STT
-                    dataGridView1.Columns["Column2"].Width = (int)(totalWidth * 0.6); // 30% chiều rộng Tên
-                    dataGridView1.Columns["Column3"].Width = (int)(totalWidth * 0.1); // 30% chiều rộng Tên
+                    dataGridView1.Columns["Column2"].Width = (int)(totalWidth * 0.7); // 30% chiều rộng Tên
+                   // dataGridView1.Columns["Column3"].Width = (int)(totalWidth * 0.1); // 30% chiều rộng Tên
                 }
                 catch (Exception ex)
                 {
@@ -1106,7 +1106,7 @@ namespace VimassUHFUploadVideo.Vpass.GiaoDien
                     imgCol.HeaderText = "";
                     imgCol.ImageLayout = DataGridViewImageCellLayout.Zoom; // Thiết lập layout để icon được zoom và căn giữa
                 }
-                dataGridView1.Columns.Add(imgCol);
+               // dataGridView1.Columns.Add(imgCol);
 
 
                 //Thiết lập font màu backcolor

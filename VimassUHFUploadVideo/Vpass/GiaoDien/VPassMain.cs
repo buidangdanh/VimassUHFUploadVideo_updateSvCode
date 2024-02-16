@@ -111,7 +111,8 @@ namespace VimassUHFUploadVideo.Vpass.GiaoDien
 
         private void bunifuImageButton1_Click(object sender, EventArgs e)
         {
-
+            this.Close();
+            new VpassLogin().Show();
         }
 
         private void thongKe1_Load(object sender, EventArgs e)

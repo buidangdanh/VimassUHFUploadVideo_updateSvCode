@@ -548,7 +548,12 @@ namespace VimassUHFUploadVideo.Vpass.GiaoDien
                 {
                     foreach (ListDiem arr in listDiems)
                     {
-                        kq += arr.infor.tenCuaHang + "; ";
+                        kq += arr.infor.tenCuaHang + " - ";
+                        foreach (ListGroup ar in arr.listGroup)
+                        {
+                            kq += ar.groupName + "; ";
+
+                        }
                     }
                 }
                 if (kq.Length > 2)

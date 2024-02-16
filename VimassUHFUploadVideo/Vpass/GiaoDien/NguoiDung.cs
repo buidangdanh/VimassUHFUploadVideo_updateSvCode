@@ -291,7 +291,7 @@ namespace VimassUHFUploadVideo.Vpass.GiaoDien
                 FunCGeneral.hashNhom.Clear();
                 khoiTaoDataGridView1();
                 thayDoiKichThuoc1();
-                listGroup = layNhomLocal();
+                listGroup = layNhomTuSerVer();
 
                 for (int i = 0; i < listGroup.Count(); i++)
                 {
@@ -421,16 +421,16 @@ namespace VimassUHFUploadVideo.Vpass.GiaoDien
                 for (int i2 = 0; i2 < itemHash.Count(); i2++)
                 {
 
-                    if (itemHash[i2].sdt != null && !itemHash[i2].sdt.Equals(""))
+                    if (true)
                     {
-                        dataGridView2.Rows.Add(itemHash[i2].id, i, itemHash[i2].sdt, itemHash[i2].name.Trim().Replace("  ", "").Replace("\r", "").Replace("\n", "").Replace("\t", "").Replace("\u0000", ""),"", itemHash[i2].chucDanh, groupName);
+                        dataGridView2.Rows.Add(itemHash[i2].id, i, itemHash[i2].vID, itemHash[i2].sdt, itemHash[i2].name.Trim().Replace("  ", "").Replace("\r", "").Replace("\n", "").Replace("\t", "").Replace("\u0000", ""),"", itemHash[i2].chucDanh, groupName);
                         dataGridView2.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
                     }
-                    else
+                  /*  else
                     {
                         dataGridView2.Rows.Add(itemHash[i2].id, i, itemHash[i2].vID, itemHash[i2].name.Trim().Replace("  ", "").Replace("\r", "").Replace("\n", "").Replace("\t", "").Replace("\u0000", ""),"", itemHash[i2].chucDanh, groupName);
                         dataGridView2.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-                    }
+                    }*/
                     i++;
                 }
             }
@@ -1018,11 +1018,12 @@ namespace VimassUHFUploadVideo.Vpass.GiaoDien
 
                     // Thiết lập tỉ lệ cho từng cột
                     dataGridView2.Columns["Column1"].Width = (int)(totalWidth * 0.05); // 50% chiều rộng STT
-                    dataGridView2.Columns["Column2"].Width = (int)(totalWidth * 0.2); // 50% chiều rộng sdt
-                    dataGridView2.Columns["Column3"].Width = (int)(totalWidth * 0.25); // 50% chiều rộng ht
+                    dataGridView2.Columns["Column2"].Width = (int)(totalWidth * 0.15); // 50% chiều rộng sdt
+                    dataGridView2.Columns["Column3"].Width = (int)(totalWidth * 0.2); // 50% chiều rộng ht
                     dataGridView2.Columns["Column4"].Width = (int)(totalWidth * 0.2); // 50% chiều rộng cd
-                    dataGridView2.Columns["Column5"].Width = (int)(totalWidth * 0.25); // 50% chiều rộng nh
+                    dataGridView2.Columns["Column5"].Width = (int)(totalWidth * 0.2); // 50% chiều rộng nh
                     dataGridView2.Columns["Column7"].Width = (int)(totalWidth * 0.1); // 50% chiều rộng nh
+                    dataGridView2.Columns["Column8"].Width = (int)(totalWidth * 0.15); // 50% chiều rộng nh
                     //dataGridView2.Columns["Column6"].Width = (int)(totalWidth * 0.05); // 50% chiều rộng STT
                 }
                 catch (Exception ex)
@@ -1146,7 +1147,8 @@ namespace VimassUHFUploadVideo.Vpass.GiaoDien
                 dataGridView2.Columns.Add(columnID2);
 
                 dataGridView2.Columns.Add("Column1", "STT");
-                dataGridView2.Columns.Add("Column2", "Số điện thoại/số thẻ");
+                dataGridView2.Columns.Add("Column2", "Số thẻ");
+                dataGridView2.Columns.Add("Column8", "Số điện thoại");
                 dataGridView2.Columns.Add("Column3", "Họ tên");
                 dataGridView2.Columns.Add("Column7", "Khuôn mặt");
                 dataGridView2.Columns.Add("Column4", "Chức danh");

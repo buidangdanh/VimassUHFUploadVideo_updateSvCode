@@ -28,6 +28,7 @@ namespace VimassUHFUploadVideo.Vpass.GiaoDien
         {
             try
             {
+                comboBox2.Visible= false;
                 this.comboBox2.Items.Add("V1");
                 this.comboBox2.Items.Add("V2");
                 comboBox2.SelectedIndex = 0;

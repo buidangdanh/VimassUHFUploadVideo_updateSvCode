@@ -585,6 +585,8 @@
     <Compile Include="Vpass\Object\ObjectThongKeRequest.cs" />
     <Compile Include="Vpass\Object\ObjectThongKeTraVe.cs" />
     <Compile Include="Vpass\Object\ObjectThongKeTraVeChiTiet.cs" />
+    <Compile Include="Vpass\Object\ObjectThongKe\lichSuRaVao.cs" />
+    <Compile Include="Vpass\Object\ObjectThongKe\ObjectTraCuuRequest.cs" />
     <Compile Include="Vpass\Object\ObjectTraThongTinThe.cs" />
     <Compile Include="Vpass\Object\ObjListPer.cs" />
     <Compile Include="Vpass\Object\ResultResponeMini.cs" />

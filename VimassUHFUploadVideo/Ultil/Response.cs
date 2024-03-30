@@ -14,5 +14,6 @@ namespace VimassUHFUploadVideo.Ultil
         public double total { get; set; }
         public double totalMoney { get; set; }
         public int total2 { get; set; }
+        public int totalAll { get; set; }
     }
 }

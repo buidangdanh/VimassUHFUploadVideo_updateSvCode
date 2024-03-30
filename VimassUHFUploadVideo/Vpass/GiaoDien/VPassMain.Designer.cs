@@ -106,8 +106,8 @@
             // 
             this.thốngKêToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.thốngKêToolStripMenuItem.Name = "thốngKêToolStripMenuItem";
-            this.thốngKêToolStripMenuItem.Size = new System.Drawing.Size(86, 25);
-            this.thốngKêToolStripMenuItem.Text = "Thống kê";
+            this.thốngKêToolStripMenuItem.Size = new System.Drawing.Size(72, 25);
+            this.thốngKêToolStripMenuItem.Text = "Tra cứu";
             this.thốngKêToolStripMenuItem.Click += new System.EventHandler(this.thốngKêToolStripMenuItem_Click);
             // 
             // phânQuyềnToolStripMenuItem

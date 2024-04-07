@@ -151,3 +151,16 @@ D:\VimassUHFUploadVideo_updateSv\VimassUHFUploadVideo\bin\x64\Debug\System.Runti
 D:\VimassUHFUploadVideo_updateSv\VimassUHFUploadVideo\obj\x64\Debug\VimassUHFUploadVideo.Vpass.GiaoDien.NhomForm.KhuonMat.resources
 D:\VimassUHFUploadVideo_updateSv\VimassUHFUploadVideo\obj\x64\Debug\VimassUHFUploadVideo.Vpass.GiaoDien.NhomForm.Sua.resources
 D:\VimassUHFUploadVideo_updateSv\VimassUHFUploadVideo\obj\x64\Debug\VimassUHFUploadVideo.Vpass.GiaoDien.NhomForm.SuaNhomCap2.resources
+D:\VimassUHFUploadVideo_updateSv\VimassUHFUploadVideo\bin\x64\Debug\Microsoft.Web.Infrastructure.dll
+D:\VimassUHFUploadVideo_updateSv\VimassUHFUploadVideo\bin\x64\Debug\System.Web.Helpers.dll
+D:\VimassUHFUploadVideo_updateSv\VimassUHFUploadVideo\bin\x64\Debug\System.Web.Razor.dll
+D:\VimassUHFUploadVideo_updateSv\VimassUHFUploadVideo\bin\x64\Debug\System.Web.WebPages.Deployment.dll
+D:\VimassUHFUploadVideo_updateSv\VimassUHFUploadVideo\bin\x64\Debug\System.Web.WebPages.dll
+D:\VimassUHFUploadVideo_updateSv\VimassUHFUploadVideo\bin\x64\Debug\System.Web.WebPages.Razor.dll
+D:\VimassUHFUploadVideo_updateSv\VimassUHFUploadVideo\bin\x64\Debug\System.Web.Helpers.xml
+D:\VimassUHFUploadVideo_updateSv\VimassUHFUploadVideo\bin\x64\Debug\System.Web.Razor.xml
+D:\VimassUHFUploadVideo_updateSv\VimassUHFUploadVideo\bin\x64\Debug\System.Web.WebPages.xml
+D:\VimassUHFUploadVideo_updateSv\VimassUHFUploadVideo\bin\x64\Debug\System.Web.WebPages.Deployment.xml
+D:\VimassUHFUploadVideo_updateSv\VimassUHFUploadVideo\bin\x64\Debug\System.Web.WebPages.Razor.xml
+D:\VimassUHFUploadVideo_updateSv\VimassUHFUploadVideo\obj\x64\Debug\VimassUHFUploadVideo.Affliate.DangNhap.resources
+D:\VimassUHFUploadVideo_updateSv\VimassUHFUploadVideo\obj\x64\Debug\VimassUHFUploadVideo.Affliate.ControllerTikTok.resources

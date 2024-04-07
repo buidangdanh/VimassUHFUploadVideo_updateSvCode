@@ -44,7 +44,7 @@ namespace VimassUHFUploadVideo.Affliate
             }
             catch(Exception ex)
             {
-                Console.WriteLine("Đã xảy ra lỗi: " + ex.Message);
+                Console.WriteLine("Đã xảy ra lỗi roi: " + ex.Message);
             }
         }
     }

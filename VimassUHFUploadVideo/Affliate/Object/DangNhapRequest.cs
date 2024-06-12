@@ -13,5 +13,6 @@ namespace VimassUHFUploadVideo.Affliate.Object
         public long currentTime { get; set; }
         public String sdt { get; set; }
         public String name { get; set; }
+        public String diaChi { get; set; }
     }
 }

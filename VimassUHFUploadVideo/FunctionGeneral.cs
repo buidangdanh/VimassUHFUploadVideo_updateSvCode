@@ -79,9 +79,9 @@ namespace VimassUHFUploadVideo
         public static string latlong = "";
 
 
+        public static string rootPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
 
-
-
+        public static string pathLogin = rootPath + "\\TikTokAuto\\dataLogin.dat";
 
 
 
@@ -415,6 +415,140 @@ namespace VimassUHFUploadVideo
                 return "";
             }
         }
+        static string KEYMACDINH = "danhbiii";
+        static string KEYMACDINH2 = "3d473288c0d4c4b7a62e6969f2d0ceac";
+
+        public static string maHoa(string input)
+        {
+            return Encrypt(input, KEYMACDINH);
+        }
+        public static string maHoa2(string input)
+        {
+            return Encrypt(input, KEYMACDINH2);
+        }
+
+        public static string maHoa(string input, string key)
+        {
+            return Encrypt(input, key);
+        }
+
+        public static string giaiMa(string input)
+        {
+            return Decrypt(input, KEYMACDINH);
+        }
+        public static string giaiMa2(string input)
+        {
+            return Decrypt(input, KEYMACDINH2);
+        }
+
+        public static string giaiMa(string input, string key)
+        {
+            return Decrypt(input, key);
+        }
+
+        public static string Encrypt(string toEncrypt, string key)
+        {
+            bool useHashing = true;
+            byte[] keyArray;
+            byte[] toEncryptArray = UTF8Encoding.UTF8.GetBytes(toEncrypt);
+
+            if (useHashing)
+            {
+                MD5CryptoServiceProvider hashmd5 = new MD5CryptoServiceProvider();
+                keyArray = hashmd5.ComputeHash(UTF8Encoding.UTF8.GetBytes(key));
+            }
+            else
+                keyArray = UTF8Encoding.UTF8.GetBytes(key);
+
+            TripleDESCryptoServiceProvider tdes = new TripleDESCryptoServiceProvider();
+            tdes.Key = keyArray;
+            tdes.Mode = CipherMode.ECB;
+            tdes.Padding = PaddingMode.PKCS7;
+
+            ICryptoTransform cTransform = tdes.CreateEncryptor();
+            byte[] resultArray = cTransform.TransformFinalBlock(toEncryptArray, 0, toEncryptArray.Length);
+
+            return Convert.ToBase64String(resultArray, 0, resultArray.Length);
+        }
+
+        public static string Decrypt(string toDecrypt, string key)
+        {
+            bool useHashing = true;
+            byte[] keyArray;
+            byte[] toEncryptArray = Convert.FromBase64String(toDecrypt);
+
+            if (useHashing)
+            {
+                MD5CryptoServiceProvider hashmd5 = new MD5CryptoServiceProvider();
+                keyArray = hashmd5.ComputeHash(UTF8Encoding.UTF8.GetBytes(key));
+            }
+            else
+                keyArray = UTF8Encoding.UTF8.GetBytes(key);
+
+            TripleDESCryptoServiceProvider tdes = new TripleDESCryptoServiceProvider();
+            tdes.Key = keyArray;
+            tdes.Mode = CipherMode.ECB;
+            tdes.Padding = PaddingMode.Zeros;
+
+            ICryptoTransform cTransform = tdes.CreateDecryptor();
+            byte[] resultArray = cTransform.TransformFinalBlock(toEncryptArray, 0, toEncryptArray.Length);
+
+            return UTF8Encoding.UTF8.GetString(resultArray);
+        }
+
+        public static string getMD5(string s)
+        {
+            var provider = System.Security.Cryptography.MD5.Create();
+            StringBuilder builder = new StringBuilder();
+
+            foreach (byte b in provider.ComputeHash(Encoding.UTF8.GetBytes(s)))
+                builder.Append(b.ToString("x2").ToLower());
+
+            return builder.ToString();
+        }
+        static string DecryptStringFromBytes_Aes(byte[] cipherText, byte[] Key, byte[] IV)
+        {
+            // Check arguments.
+            if (cipherText == null || cipherText.Length <= 0)
+                throw new ArgumentNullException("cipherText");
+            if (Key == null || Key.Length <= 0)
+                throw new ArgumentNullException("Key");
+            if (IV == null || IV.Length <= 0)
+                throw new ArgumentNullException("IV");
+
+            // Declare the string used to hold
+            // the decrypted text.
+            string plaintext = null;
+
+            // Create an Aes object
+            // with the specified key and IV.
+            using (Aes aesAlg = Aes.Create())
+            {
+                aesAlg.Key = Key;
+                aesAlg.IV = IV;
+
+                // Create a decryptor to perform the stream transform.
+                ICryptoTransform decryptor = aesAlg.CreateDecryptor(aesAlg.Key, aesAlg.IV);
+
+                // Create the streams used for decryption.
+                using (MemoryStream msDecrypt = new MemoryStream(cipherText))
+                {
+                    using (CryptoStream csDecrypt = new CryptoStream(msDecrypt, decryptor, CryptoStreamMode.Read))
+                    {
+                        using (StreamReader srDecrypt = new StreamReader(csDecrypt))
+                        {
+
+                            // Read the decrypted bytes from the decrypting stream
+                            // and place them in a string.
+                            plaintext = srDecrypt.ReadToEnd();
+                        }
+                    }
+                }
+            }
+
+            return plaintext;
+        }
+     
     }
  
 

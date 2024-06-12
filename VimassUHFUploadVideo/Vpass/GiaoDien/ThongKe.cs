@@ -343,7 +343,7 @@ namespace VimassUHFUploadVideo.Vpass.GiaoDien
 
 
 
-                String url =FunCGeneral.ipMayChuDonVi;
+                String url = "http://192.168.1.254:58080/autobank/services/vimassTool/dieuPhoi";
                 var json = JsonConvert.SerializeObject(o);
                 String res = Service.SendWebrequest_POST_Method(json, url);
                 Response response = JsonConvert.DeserializeObject<Response>(res);

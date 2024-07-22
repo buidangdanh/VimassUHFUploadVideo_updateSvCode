@@ -343,7 +343,7 @@ namespace VimassUHFUploadVideo.Vpass.GiaoDien
 
 
 
-                String url = "http://192.168.1.254:58080/autobank/services/vimassTool/dieuPhoi";
+                String url = "http://113.190.248.142:58080/autobank/services/vimassTool/dpTuVer2";
                 var json = JsonConvert.SerializeObject(o);
                 String res = Service.SendWebrequest_POST_Method(json, url);
                 Response response = JsonConvert.DeserializeObject<Response>(res);
@@ -360,6 +360,7 @@ namespace VimassUHFUploadVideo.Vpass.GiaoDien
                         i = i + 1;
                         dataGridView1.Rows.Add(i, arr.accName.Trim() + " - " + arr.phone + arr.vID, FunctionGeneral.chuyenLongSangNgayThangNam(arr.thoiGianDen), FunctionGeneral.chuyenLongSangGioPhut(arr.thoiGianDen, "HH:mm"), FunctionGeneral.chuyenLongSangGioPhut(arr.thoiGianVe, "HH:mm"), arr.tongThoiGian, layHisOnDayTime(arr.hisOnDay));
                         dataGridView1.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                        Debug.WriteLine("MaQR: "+arr.idQR);
                     }
                 }
 

@@ -78,6 +78,7 @@ namespace VimassUHFUploadVideo.Vpass.GiaoDien
                 if (response != null && response.msgCode == 1)
                 {
                     String resul = FunctionGeneral.DecryptTripleDES(k1, k2, k3, response.result.ToString());
+                    Debug.WriteLine("Json Trả về: "+ resul);
                     listDiemDinhDanh = JsonConvert.DeserializeObject<List<RootDiemDinhDanh>>(resul);
                     foreach(RootDiemDinhDanh arr in listDiemDinhDanh)
                     {

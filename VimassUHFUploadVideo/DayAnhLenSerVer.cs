@@ -45,10 +45,10 @@ namespace VimassUHFUploadVideo
             }
             catch(Exception ex)
             {
-
+                MessageBox.Show(ex.Message);
             }
         }
-        private static String dayLen(String pathsd)
+        public static String dayLen(String pathsd)
         {
             String kq = "";
             try
@@ -56,16 +56,21 @@ namespace VimassUHFUploadVideo
                 upLoadAnh u = new upLoadAnh();
                 u.value = ConvertImageToBase64(pathsd);
                 u.idCheck = FunctionGeneral.Md5(u.value);
-                string url = "http://103.21.150.10:8080/VimassMedia/services/VMMedia/uploadImg";
+                string url = "https://web.vimass.vn/VimassMedia/services/VMMedia/uploadImg";
                 var json = JsonConvert.SerializeObject(u);
                 String res = Service.SendWebrequest_POST_Method(json, url);
 
                 Debug.WriteLine(json);
 
                 Response response = JsonConvert.DeserializeObject<Response>(res);
-                if (response.msgCode == 1)
+                if (response!=null&&response.msgCode == 1)
                 {
                     kq = response.result.ToString();
+
+                }
+                else
+                {
+                    MessageBox.Show(response.msgContent);
 
                 }
 
@@ -73,12 +78,12 @@ namespace VimassUHFUploadVideo
             }
             catch(Exception ex)
             {       
-                Debug.WriteLine(ex.Message);
+                MessageBox.Show(ex.Message);
 
             }
             return kq;
         }
-        private static string ConvertImageToBase64(string imagePath)
+        public static string ConvertImageToBase64(string imagePath)
         {
             byte[] imageBytes = System.IO.File.ReadAllBytes(imagePath);
             string base64String = Convert.ToBase64String(imageBytes);

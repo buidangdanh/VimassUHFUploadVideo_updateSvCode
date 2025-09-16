@@ -2223,7 +2223,7 @@ namespace VimassUHFUploadVideo
         {
             try
             {
-                for (int i = 2112; i <= gioiHan; i = i + 48)
+                for (int i = 144+48+48; i <= gioiHan; i = i + 48)
                 {
 
                     string url = urlx + i;
@@ -2269,9 +2269,18 @@ namespace VimassUHFUploadVideo
                                         var imgNodes = aNode.SelectSingleNode(".//img[1]");
                                         if (imgNodes != null)
                                         {
-                                            anhSanPham = await goiDichVuTaoAnhAsync(imgNodes.GetAttributeValue("src", string.Empty).Trim());
+                                            //anhSanPham = await goiDichVuTaoAnhAsync(imgNodes.GetAttributeValue("src", string.Empty).Trim());
                                         }
-                                        u = layGiaSanPhamAdidas("https://www.adidas.com.vn" + linkSanPham);
+                                        if (linkSanPham.IndexOf("https") > -1)
+                                        {
+                                            u = layGiaSanPhamAdidas(linkSanPham);
+                                        }
+                                        else
+                                        {
+                                            u = layGiaSanPhamAdidas("https://www.adidas.com.vn" + linkSanPham);
+
+                                        }
+
 
                                     }
                                     var tenNode = divSanPham.SelectSingleNode(".//p[contains(@class, 'glass-product-card__title')]");
@@ -2280,7 +2289,7 @@ namespace VimassUHFUploadVideo
                                         tenSanPham = tenNode.InnerText;
                                     }
                                     FunctionGeneral.writeFile(@"D:\AdidasLog.txt", tenSanPham + " : " + u.gia + " đồng");
-                                    goiDichVuTaoSanPham(anhSanPham, tenSanPham, u.gia, u.moTa, "S1720437099513M857D6", idCate);
+                                    //goiDichVuTaoSanPham(anhSanPham, tenSanPham, u.gia, u.moTa, "S1720437099513M857D6", idCate);
                                     Debug.WriteLine(idCate + " " + anhSanPham + " tensanpham: " + tenSanPham + " gia: " + u.gia + " mota" + u.moTa);
                                     Thread.Sleep(200);
 

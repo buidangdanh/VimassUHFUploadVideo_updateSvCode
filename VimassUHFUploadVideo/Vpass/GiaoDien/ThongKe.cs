@@ -46,7 +46,7 @@ namespace VimassUHFUploadVideo.Vpass.GiaoDien
 
             try
             {
-                goiDichVu104();
+                //goiDichVu104();
 
 
             }
@@ -343,7 +343,7 @@ namespace VimassUHFUploadVideo.Vpass.GiaoDien
 
 
 
-                String url = "http://113.190.248.142:58080/autobank/services/vimassTool/dpTuVer2";
+                String url = "http://192.168.1.254:58080/autobank/services/vimassTool/dieuPhoi";
                 var json = JsonConvert.SerializeObject(o);
                 String res = Service.SendWebrequest_POST_Method(json, url);
                 Response response = JsonConvert.DeserializeObject<Response>(res);

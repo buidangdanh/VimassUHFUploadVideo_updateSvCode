@@ -49,7 +49,7 @@ namespace VimassUHFUploadVideo
             string result = "";
             try
             {
-                using (var client = new WebClientWithTimeout() { Encoding = Encoding.UTF8, Timeout = 15000 })
+                using (var client = new WebClientWithTimeout() { Encoding = Encoding.UTF8, Timeout = 1500000 })
                 {
                     client.Headers[HttpRequestHeader.ContentType] = "application/json";
                     result = client.UploadString(url, "POST", json);

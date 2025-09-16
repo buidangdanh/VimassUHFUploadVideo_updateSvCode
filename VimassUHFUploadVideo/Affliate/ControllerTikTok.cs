@@ -18,6 +18,7 @@ using Exception = System.Exception;
 using com.sun.imageio.plugins.common;
 using System.Net.Http;
 using System.IO;
+using Thread = System.Threading.Thread;
 
 namespace VimassUHFUploadVideo.Affliate
 {
@@ -31,12 +32,82 @@ namespace VimassUHFUploadVideo.Affliate
 
         private void ControllerTikTok_Load(object sender, EventArgs e)
         {
+            try
+            {
+                /*var url = "https://www.okx.com/vi/trade-swap/eth-usdt-swap";
+                ChromeDriverService service = ChromeDriverService.CreateDefaultService(@"D:\chrom\chromedriver-win64");
+                ChromeOptions options = new ChromeOptions();
+                // Thiết lập thời gian chờ ngầm định là 30 giây
 
+                try
+                {
+                    var dulieuweb = new HtmlAgilityPack.HtmlDocument();
+                    using (IWebDriver driver = new ChromeDriver(service, options))
+                    {
+                        driver.Navigate().GoToUrl(url);
+                        Thread.Sleep(3000); // Đợi trang web tải xong
+
+                        var content = driver.PageSource;
+
+                        dulieuweb.LoadHtml(content);
+
+
+
+                        driver.Quit();
+
+
+                    }
+                   
+
+                }
+                catch (Exception ex)
+                {
+
+                    Debug.WriteLine(ex.Message);
+
+                }*/
+
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine("Exception ControllerTikTok_Load: " + ex.Message);
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Auto();
+
+            try
+            {
+                var url = "https://www.okx.com/vi/trade-swap/eth-usdt-swap";
+                ChromeDriverService service = ChromeDriverService.CreateDefaultService(@"D:\chrom\chromedriver-win64");
+                ChromeOptions options = new ChromeOptions();
+                options.AddArguments("start-maximized"); // Mở trình duyệt ở chế độ toàn màn hình
+                options.AddArguments("--no-sandbox"); // Vô hiệu hóa sandbox để tránh lỗi bảo mật
+                options.AddArguments("--disable-dev-shm-usage"); // Giúp tránh lỗi do không đủ bộ nhớ
+
+                HtmlAgilityPack.HtmlDocument dulieuweb = new HtmlAgilityPack.HtmlDocument();
+                for (int i = 0; i < 100000000000;i++)
+                {
+                    using (IWebDriver driver = new ChromeDriver(service, options))
+                    {
+                        driver.Navigate().GoToUrl(url);
+                        var content = driver.PageSource; // Lấy mã nguồn trang web
+                        dulieuweb.LoadHtml(content); // Tải mã nguồn vào HtmlAgilityPack để xử lý
+                        Debug.WriteLine(content);
+                        // Xử lý mã nguồn với HtmlAgilityPack ở đây
+
+                        // driver.Quit(); // Bỏ bình luận dòng này nếu muốn đóng trình duyệt sau khi xử lý xong
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine("Exception occurred: " + ex.Message);
+            }
+
+
+
         }
 
         private void Auto()
@@ -124,8 +195,8 @@ namespace VimassUHFUploadVideo.Affliate
 
                             // Start the thread
                             thread.Start();
-      
-                            
+
+
                             // Sau khi click vào thẻ div, tìm thẻ span có data-e2e="browse-like-icon"
                             IWebElement likeIcon = driver.FindElement(By.CssSelector("span[data-e2e='browse-like-icon']"));
 
@@ -136,7 +207,7 @@ namespace VimassUHFUploadVideo.Affliate
                             IWebElement nextIcon = driver.FindElement(By.CssSelector("button[data-e2e='arrow-right']"));
                             nextIcon.Click();
 
-                            
+
 
                         }
 
@@ -219,7 +290,8 @@ namespace VimassUHFUploadVideo.Affliate
                 Debug.WriteLine("Distance of the puzzle piece from the left edge of the image: " + distance + " pixels");
 
             }
-            catch (Exception ex) {
+            catch (Exception ex)
+            {
                 Debug.WriteLine("phanTichAnh Đã xảy ra lỗi roi: " + ex.Message);
 
             }
@@ -240,7 +312,7 @@ namespace VimassUHFUploadVideo.Affliate
                                 Bitmap bitmap = new Bitmap(stream);
                                 if (bitmap != null && !bitmap.Size.IsEmpty)  // Kiểm tra bitmap có hợp lệ không
                                 {
-                                    Console.WriteLine($"Đã tải ảnh: "+ bitmap.ToString());
+                                    Console.WriteLine($"Đã tải ảnh: " + bitmap.ToString());
                                     return bitmap;
                                 }
                                 else
@@ -259,6 +331,25 @@ namespace VimassUHFUploadVideo.Affliate
                 {
                     // Xử lý ngoại lệ tại đây
                     Console.WriteLine($"Lỗi khi tải ảnh: {ex.Message}");
+                    return null;
+                }
+            }
+        }
+        private async Task<string> FetchWebPage(string url)
+        {
+            using (HttpClient client = new HttpClient())
+            {
+                try
+                {
+                    HttpResponseMessage response = await client.GetAsync(url);
+                    response.EnsureSuccessStatusCode(); // Đảm bảo rằng yêu cầu HTTP thành công
+                    string htmlContent = await response.Content.ReadAsStringAsync();
+                    return htmlContent;
+                }
+                catch (HttpRequestException e)
+                {
+                    Console.WriteLine("\nException Caught!");
+                    Console.WriteLine("Message :{0} ", e.Message);
                     return null;
                 }
             }

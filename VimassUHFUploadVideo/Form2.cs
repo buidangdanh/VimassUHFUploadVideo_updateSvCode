@@ -18,6 +18,7 @@ namespace VimassUHFUploadVideo
         {
             InitializeComponent();
         }
+
         static DateTime utcDateTime = DateTime.UtcNow;
         static string vnTimeZoneKey = "SE Asia Standard Time";
         static TimeZoneInfo vnTimeZone = TimeZoneInfo.FindSystemTimeZoneById(vnTimeZoneKey);

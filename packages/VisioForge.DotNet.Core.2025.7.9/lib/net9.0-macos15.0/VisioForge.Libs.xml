@@ -1,0 +1,198 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>VisioForge.Libs</name>
+    </assembly>
+    <members>
+        <member name="T:VisioForge.Libs.GStreamer.GstAccurateExit">
+            <summary>
+            Class GstAccurateExit.
+            </summary>
+        </member>
+        <member name="F:VisioForge.Libs.GStreamer.GstAccurateExit._lock">
+            <summary>
+            The lock
+            </summary>
+        </member>
+        <member name="F:VisioForge.Libs.GStreamer.GstAccurateExit._loops">
+            <summary>
+            The loops
+            </summary>
+        </member>
+        <member name="M:VisioForge.Libs.GStreamer.GstAccurateExit.Add(GLib.MainLoop)">
+            <summary>
+            Adds the specified loop.
+            </summary>
+            <param name="loop">The loop.</param>
+        </member>
+        <member name="M:VisioForge.Libs.GStreamer.GstAccurateExit.SafeRemove(GLib.MainLoop)">
+            <summary>
+            Safes the remove.
+            </summary>
+            <param name="loop">The loop.</param>
+        </member>
+        <member name="M:VisioForge.Libs.GStreamer.GstAccurateExit.ExitAndClear">
+            <summary>
+            Exits the and clear.
+            </summary>
+        </member>
+        <member name="M:VisioForge.Libs.GStreamer.GstAccurateExit.#cctor">
+            <summary>
+            Initializes static members of the <see cref="T:VisioForge.Libs.GStreamer.GstAccurateExit"/> class.
+            </summary>
+        </member>
+        <member name="M:VisioForge.Libs.GStreamer.GstAccurateExit.CurrentDomain_ProcessExit(System.Object,System.EventArgs)">
+            <summary>
+            Handles the ProcessExit event of the CurrentDomain control.
+            </summary>
+            <param name="sender">The source of the event.</param>
+            <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event data.</param>
+        </member>
+        <member name="T:VisioForge.Libs.GStreamer.GstPlayFlags">
+            <summary>
+            Extra flags to configure the behaviour of the sinks.
+            </summary>
+        </member>
+        <member name="F:VisioForge.Libs.GStreamer.GstPlayFlags.Video">
+            <summary>
+            Render the video stream.
+            </summary>
+        </member>
+        <member name="F:VisioForge.Libs.GStreamer.GstPlayFlags.Audio">
+            <summary>
+            Render the audio stream.
+            </summary>
+        </member>
+        <member name="F:VisioForge.Libs.GStreamer.GstPlayFlags.Text">
+            <summary>
+            Render subtitles.
+            </summary>
+        </member>
+        <member name="F:VisioForge.Libs.GStreamer.GstPlayFlags.Vis">
+            <summary>
+            Render visualisation when no video is present.
+            </summary>
+        </member>
+        <member name="F:VisioForge.Libs.GStreamer.GstPlayFlags.SoftVolume">
+            <summary>
+            Use software volume.
+            </summary>
+        </member>
+        <member name="F:VisioForge.Libs.GStreamer.GstPlayFlags.NativeAudio">
+            <summary>
+            Only use native audio formats.
+            </summary>
+        </member>
+        <member name="F:VisioForge.Libs.GStreamer.GstPlayFlags.NativeVideo">
+            <summary>
+            Only use native video formats.
+            </summary>
+        </member>
+        <member name="F:VisioForge.Libs.GStreamer.GstPlayFlags.Download">
+            <summary>
+            Attempt progressive download buffering.
+            </summary>
+        </member>
+        <member name="F:VisioForge.Libs.GStreamer.GstPlayFlags.Buffering">
+            <summary>
+            Buffer demuxed/parsed data.
+            </summary>
+        </member>
+        <member name="F:VisioForge.Libs.GStreamer.GstPlayFlags.Deinterlace">
+            <summary>
+            Deinterlace video if necessary.
+            </summary>
+        </member>
+        <member name="F:VisioForge.Libs.GStreamer.GstPlayFlags.SoftColorbalance">
+            <summary>
+            Use software color balance.
+            </summary>
+        </member>
+        <member name="F:VisioForge.Libs.GStreamer.GstPlayFlags.ForceFilters">
+            <summary>
+            Force audio/video filter(s) to be applied.
+            </summary>
+        </member>
+        <member name="F:VisioForge.Libs.GStreamer.GstPlayFlags.ForceSWDecoders">
+            <summary>
+            Force only software-based decoders(no effect for playbin3).
+            </summary>
+        </member>
+        <member name="T:VisioForge.Libs.GStreamer.RSVG">
+            <summary>
+            RSVG API.
+            </summary>
+        </member>
+        <member name="T:VisioForge.Libs.PlatformHelper">
+            <summary>
+            Platform helper.
+            </summary>
+        </member>
+        <member name="P:VisioForge.Libs.PlatformHelper.IsWindows">
+            <summary>
+            Returns true if running on Windows, false otherwise
+            </summary>
+        </member>
+        <member name="P:VisioForge.Libs.PlatformHelper.IsLinux">
+            <summary>
+            Returns true if running on Linux, false otherwise
+            </summary>
+        </member>
+        <member name="P:VisioForge.Libs.PlatformHelper.IsLinuxDesktop">
+            <summary>
+            Returns true if running on Linux desktop, false otherwise
+            </summary>
+        </member>
+        <member name="P:VisioForge.Libs.PlatformHelper.IsMac">
+            <summary>
+            Returns true if running on macOS, false otherwise
+            </summary>
+        </member>
+        <member name="M:VisioForge.Libs.SerilogAdds.Observable.ObservableLoggerConfigurationExtensions.Observers(Serilog.Configuration.LoggerSinkConfiguration,System.Action{System.IObservable{Serilog.Events.LogEvent}},Serilog.Events.LogEventLevel,Serilog.Core.LoggingLevelSwitch)">
+            <summary>
+            Write events to Rx observers.
+            </summary>
+            <param name="sinkConfiguration">Logger sink configuration.</param>
+            <param name="configureObservers">An action that provides an observable
+            to which observers can subscribe.</param>
+            <param name="restrictedToMinimumLevel">The minimum level for
+            events passed through the sink. Ignored when <paramref name="levelSwitch"/> is specified.</param>
+            <param name="levelSwitch">A switch allowing the pass-through minimum level
+            to be changed at runtime.</param>
+            <returns>Configuration object allowing method chaining.</returns>
+        </member>
+        <member name="M:GLib.Marshaller.StringArrayPtrFree(System.IntPtr,System.Int32)">
+            <summary>
+            Frees a fixed-length strings array
+            </summary>
+            <param name="ptr"></param>
+        </member>
+        <member name="M:GLib.Opaque.DisposeManagedResources">
+            <summary>
+            Disposes the managed resources.
+            This method is intended to be overriden.
+            </summary>
+        </member>
+        <member name="M:GLib.Opaque.DisposeUnmanagedResources">
+            <summary>
+            Disposes the unmanaged resources.
+            This method is intended to be overriden.
+            </summary>
+        </member>
+        <member name="M:Gst.DLL.MapAndLoad(System.String,System.Reflection.Assembly,System.Nullable{System.Runtime.InteropServices.DllImportSearchPath})">
+            <summary>
+            The callback: which loads the mapped libray in place of the original
+            </summary>
+            <param name="libraryName">Name of the library.</param>
+            <param name="assembly">The assembly.</param>
+            <param name="dllImportSearchPath">The DLL import search path.</param>
+            <returns>IntPtr.</returns>
+        </member>
+        <member name="M:Gst.IntRange.ToArray">
+            <summary>
+            Converts to array.
+            </summary>
+            <returns>System.Int32[].</returns>
+        </member>
+    </members>
+</doc>

@@ -273,7 +273,8 @@ namespace VimassUHFUploadVideo
         }
         public static string GetLatLngFromAdD(string address)
         {
-
+            //AIzaSyAqAy3TLYd3KAwyGr8q1hBfNq8fhuje8n8  key pertrolimex
+            //AIzaSyA-3pTPVsa4Wr0XhsccIY48UbfIMpUkb7I  key pharmacity
             string url = $"https://maps.googleapis.com/maps/api/geocode/json?address={address}&key=AIzaSyA-3pTPVsa4Wr0XhsccIY48UbfIMpUkb7I";
 
             HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
@@ -548,7 +549,64 @@ namespace VimassUHFUploadVideo
 
             return plaintext;
         }
-     
+        /*  public static String decryptDES(String data, String key)
+          {
+              if (key == null || data == null)
+                  return "";
+              try
+              {
+                  data = data.Trim();
+                  byte[] dataBytes = Base64.Decode(UTF8Encoding.UTF8.GetBytes(data));
+                  DESKeySpec dESKeySpec = new DESKeySpec(UTF8Encoding.UTF8.GetBytes(key));
+                  SecretKeyFactory secretKeyFactory = SecretKeyFactory.getInstance("DES");
+                  SecretKey secretKey = secretKeyFactory.generateSecret(dESKeySpec);
+                  Cipher cipher = Cipher.getInstance("DES");
+                  cipher.init(Cipher.DECRYPT_MODE, secretKey);
+                  byte[] ciphertext = (cipher.doFinal(dataBytes));
+                  return UTF8Encoding.UTF8.GetString(ciphertext);
+              }
+              catch (Exception e)
+              {
+                  return "";
+              }
+          }*/
+        public static byte[] AESDecrypt(byte[] encryptedData, string key)
+        {
+            if (encryptedData == null || string.IsNullOrEmpty(key))
+            {
+                Console.WriteLine("Input data or key is null or empty.");
+                return null;
+            }
+
+            try
+            {
+                // Tạo AES với chế độ ECB và PKCS5Padding
+                using (Aes aes = Aes.Create())
+                {
+                    aes.Mode = CipherMode.ECB;
+                    aes.Padding = PaddingMode.PKCS7;
+                    aes.Key = Encoding.UTF8.GetBytes(key);
+
+                    // Tạo decryptor
+                    ICryptoTransform decryptor = aes.CreateDecryptor();
+
+                    // Giải mã dữ liệu
+                    byte[] decryptedBytes = decryptor.TransformFinalBlock(encryptedData, 0, encryptedData.Length);
+
+                    return decryptedBytes;
+                }
+            }
+            catch (CryptographicException ex)
+            {
+                Console.WriteLine($"Decryption error: {ex.Message}");
+                return null;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Unexpected error: {ex.Message}");
+                return null;
+            }
+        }
     }
  
 

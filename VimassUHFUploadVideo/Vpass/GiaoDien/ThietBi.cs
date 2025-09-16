@@ -1590,6 +1590,7 @@ namespace VimassUHFUploadVideo.Vpass.GiaoDien
 
         private void button6_Click(object sender, EventArgs e)
         {
+            new ConfigVanTay().Show();
             panel1.Width = 400;
             loaiThietBi = 4;
             pictureBox.Visible = false;
